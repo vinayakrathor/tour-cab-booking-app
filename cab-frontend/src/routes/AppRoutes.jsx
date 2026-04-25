@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
+import About from "../pages/About";
+import TourPackages from "../pages/tourpackage";
 
 const AppRoutes = () => {
     return (
@@ -8,6 +10,8 @@ const AppRoutes = () => {
             <Routes>
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<Home />} />
+                    <Route path="/tour-packages" element={<TourPackages />} />
+                     <Route path="/about" element={<About />} />
                 </Route>
             </Routes>
         </>
