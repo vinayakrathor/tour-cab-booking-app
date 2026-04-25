@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../styles/Navbar.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { COMPANY_DETAILS } from '../ComponyDetails';
+import { PhoneCall } from "lucide-react";
+
 
 
 const Navbar = () => {
@@ -41,8 +43,8 @@ const Navbar = () => {
             <NavLink
               to="/"
               className={({ isActive }) => (isActive ? "navbar-link-active" : "navbar-link")}
-            onClick={() => {
-              setIsOpen(false);
+              onClick={() => {
+                setIsOpen(false);
               }}>Home</NavLink>
             <NavLink
               to="/tour-packages"
@@ -53,7 +55,7 @@ const Navbar = () => {
               Tour Packages
             </NavLink>
 
-            
+
 
             <NavLink
               to="/about"
@@ -64,7 +66,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               to="/contact-us"
-              
+
               className={({ isActive }) => (isActive ? "navbar-link-active" : "navbar-link")}
               onClick={() => {
                 setIsOpen(false);
@@ -73,8 +75,10 @@ const Navbar = () => {
               Contact
             </NavLink>
 
-            <span className="navbar-phone">{COMPANY_DETAILS.phone}</span>
-
+            <span className="flex items-center space-x-2 navbar-phone">
+              <span>{COMPANY_DETAILS.phone}</span>
+              <PhoneCall size={20} />
+            </span>
             {/* <button className="navbar-btn">
               Book a Ride
             </button> */}

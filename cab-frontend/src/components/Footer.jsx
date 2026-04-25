@@ -14,8 +14,8 @@ export default function Footer() {
                 <div>
                     <h3 className="text-lg font-semibold mb-3">About Us</h3>
                     <p className="text-gray-400 text-sm">
-                        ASSURE CAB is a complete car rental solution for local, outstation & holidays tour.
-                        Within few years of its launch, ASSURE CAB has positioned itself as In.
+                        {COMPANY_DETAILS.name.toUpperCase()} CAB is a complete car rental solution for local, outstation & holidays tour.
+                        Within few years of its launch, {COMPANY_DETAILS.name} has positioned itself as In.
                     </p>
                 </div>
 
@@ -62,7 +62,7 @@ export default function Footer() {
                 {/* Contact */}
                 <div>
                     <h3 className="text-lg font-semibold mb-3">24x7 Contact</h3>
-                    <p className="text-orange-400 text-sm">Assure Travel Services Pvt. Ltd.</p>
+                    <p className="text-orange-400 text-sm">{COMPANY_DETAILS.Office}</p>
                     <p className="flex gap-1 text-gray-400 text-sm mt-2">
                         <Mail size={20} /> <a href="mailto:booking@assurecab.com" className="hover:text-white">{COMPANY_DETAILS.email}</a>
                     </p>
