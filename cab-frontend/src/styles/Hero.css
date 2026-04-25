@@ -1,0 +1,116 @@
+.heroWrap{
+    margin: top 30px;;
+  /* position: relative; */
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #111;
+}
+
+.heroBg{
+  position:absolute; inset:0;
+  background-image: url("https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=2000&q=80");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+}
+
+.heroOverlay{
+  position:absolute; inset:0;
+  background: linear-gradient(90deg, rgba(255,122,0,.45) 0%, rgba(0,0,0,.25) 65%);
+}
+
+.heroContent{ position: relative; z-index: 2; padding: 40px 0; }
+
+/* Left card */
+.heroCard{
+  background:#fff;
+  border-radius:18px;
+  box-shadow: 0 10px 30px rgba(16,24,40,.10);
+  overflow:hidden;
+}
+
+.heroTabs{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:6px;
+  padding:12px;
+  background:#fff;
+  border-bottom:1px solid rgba(16,24,40,.08);
+}
+
+.heroTabBtn{
+  border:0;
+  padding:10px 8px;
+  border-radius:10px;
+  font-weight:900;
+  font-size:14px;
+  background:#2b2f36;
+  color:#fff;
+  opacity:.75;
+}
+.heroTabBtn.active{
+  background:#ff7a00;
+  opacity:1;
+  position:relative;
+}
+.heroTabBtn.active::after{
+  content:"";
+  position:absolute;
+  left:20px;
+  bottom:-10px;
+  width:0; height:0;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-top:10px solid #ff7a00;
+}
+
+.heroForm{ padding:18px; }
+.heroLabel{ font-weight:900; margin-bottom:6px; }
+.heroHint{ color:#6b7280; }
+
+/* Hero button (separate) */
+.heroBtn{
+  display:inline-block;
+  background:#ff7a00;
+  border:1px solid #ff7a00;
+  color:#fff;
+  font-weight:900;
+  padding:10px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  text-align:center;
+}
+.heroBtn:hover{
+  background:#e56c00;
+  border-color:#e56c00;
+  color:#fff;
+}
+
+.heroPill{ border-radius:999px !important; padding:10px 18px !important; font-weight:900 !important; }
+
+/* Right message box */
+.heroMsg{
+  height: 100%;
+  border: 2px solid rgba(255,255,255,.75);
+  border-radius: 16px;
+  padding: 28px;
+  background: rgba(0,0,0,.35);
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.heroMsg h1{
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+.heroMsg p{ font-size:18px; opacity:.92; }
+
+@media (max-width: 991px){
+  .heroWrap{ min-height:auto; padding:30px 0; }
+  .heroTabs{ grid-template-columns: repeat(2, 1fr); }
+  .heroTabBtn.active::after{ display:none; }
+}
