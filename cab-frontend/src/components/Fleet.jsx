@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import cab1 from '../assets/images/Assure Cab.png';
+import cab2 from '../assets/images/Assure Cab (1).png';
+import cab3 from '../assets/images/Assure Cab (2).png';
 
 const FleetSlider = () => {
     const [activeCar, setActiveCar] = useState('sedan'); // Default active tab
@@ -12,7 +15,7 @@ const FleetSlider = () => {
             desc: 'An AC hatchback, which allows you to have a comfortable ride at the most economical price.',
             // Using a placeholder image - replace with your actual transparent car images
             // img: 'https://pngimg.com/d/hyundai_PNG11228.png',
-            img: '/src/assets/images/Assure Cab (2).png'
+            img: cab3
         },
         sedan: {
             id: 'sedan',
@@ -20,7 +23,7 @@ const FleetSlider = () => {
             subtitle: 'Ride with Friends and Family.',
             desc: 'An AC ride, which take your ride to next level with the best luxury car either for a weekend getaway trip or for an extended vacation away from the big city.',
             // img: 'https://pngimg.com/d/toyota_PNG1945.png',
-                        img: '/src/assets/images/Assure Cab.png'
+                        img: cab1
 
         },
         suv: {
@@ -29,7 +32,7 @@ const FleetSlider = () => {
             subtitle: 'Ride with extra large space',
             desc: 'A very comfortable AC ride with extra large space for a very relaxed ride for all long and short drives.',
             // img: 'https://pngimg.com/d/ertiga_PNG43.png',
-                        img: '/src/assets/images/Assure Cab (1).png'
+                        img: cab2
 
         }
     };
@@ -61,7 +64,7 @@ const FleetSlider = () => {
             {/* Header Area */}
             <div className="text-center mb-8">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-1">
-                    CityCabs Services Pvt. Ltd.
+                    Swara Trips Indore.
                 </h2>
                 <p className="text-gray-600 text-lg">
                     Hire a cab for Local Taxi and Outstation Trip

@@ -1,4 +1,10 @@
 import React, { useRef } from 'react';
+import ahmedabad from '../assets/images/Ahmedabad.png';
+import bhavanagar from '../assets/images/Bhavanagar.jpg';
+import bhuj from '../assets/images/bhuj.jpg';
+import jamnagar from '../assets/images/jamnagar-1.jpg';
+// import mumbai from '../assets/images/mumbai.jpg';
+import pune from '../assets/images/pune.jpg';
 
 const RentalsSlider = () => {
   const sliderRef = useRef(null);
@@ -9,32 +15,32 @@ const RentalsSlider = () => {
       id: 1,
       name: 'Ahmedabad',
       // Using placeholder images - replace with your actual architecture photos
-      img: '/src/assets/images/Ahmedabad.png',
+      img: ahmedabad,
     },
     {
       id: 2,
       name: 'Bhavanagar',
-      img: '/src/assets/images/Bhavanagar.jpg',
+      img: bhavanagar,
     },
     {
       id: 3,
       name: 'Bhuj',
-      img: '/src/assets/images/bhuj.jpg',
+      img: bhuj,
     },
     {
       id: 4,
       name: 'Jamnagar',
-      img: '/src/assets/images/jamnagar-1.jpg',
+      img: jamnagar,
     },
     {
       id: 5,
       name: 'Mumbai',
-      img: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=500&q=80',
+      img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVtYmFpfGVufDB8fDB8fHww&w=1000&q=80',
     },
     {
       id: 6,
       name: 'Pune',
-      img: '/src/assets/images/pune.jpg',
+      img: pune,
     }
   ];
 
