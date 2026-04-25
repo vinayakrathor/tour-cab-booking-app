@@ -1,7 +1,7 @@
 /* Navbar.css */
 @import "tailwindcss";
 .navbar {
-  @apply w-full bg-white/90 backdrop-blur-sm shadow-md;
+  @apply w-full bg-white/90 backdrop-blur-sm shadow-md relative;
 }
 
 .navbar-container {
@@ -30,6 +30,11 @@
   @apply hidden md:flex space-x-8 items-center;
 }
 
+.navbar-links-container.mobile-active {
+  /* Override standard hidden/flex settings for mobile view dropdown */
+  @apply flex flex-col absolute top-20 left-0 w-full bg-white shadow-xl py-8 px-6 space-y-6 space-x-0 border-t border-gray-100 z-40;
+}
+
 .navbar-link {
   @apply text-gray-600 hover:text-orange-500 font-medium transition-colors duration-200;
 }
@@ -45,4 +50,26 @@
 
 .navbar-btn {
   @apply bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-semibold transition duration-300 shadow-lg shadow-orange-500/30;
+}
+
+/* Hamburger Menu Button */
+.navbar-toggle-btn {
+  @apply md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10 border-none bg-transparent cursor-pointer z-50;
+}
+
+.hamburger-line {
+  @apply w-6 h-0.5 bg-gray-800 transition-all duration-300 origin-center rounded-full;
+}
+
+/* Animated 'X' when the menu is open */
+.navbar-toggle-btn.open .hamburger-line:nth-child(1) {
+  @apply transform translate-y-2 rotate-45;
+}
+
+.navbar-toggle-btn.open .hamburger-line:nth-child(2) {
+  @apply opacity-0;
+}
+
+.navbar-toggle-btn.open .hamburger-line:nth-child(3) {
+  @apply transform -translate-y-2 -rotate-45;
 }
