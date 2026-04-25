@@ -1,6 +1,13 @@
 import { useMemo, useState } from "react";
 import "../styles/tourpackage.css";
 import { Phone, PhoneCall } from "lucide-react";
+import firstsection from "../assets/images/1stsection.jpg";
+import ujjainmahakaleshwar from "../assets/images/ujjain-mahakaleshwar.jpg";
+import khajuraho from "../assets/images/khajuraho-fi.webp";
+import Kanha_Safari_Main from "../assets/images/Kanha_Safari_Main.jpg";
+import Pachmarhi_valley_Madhya_Pradesh_INDIA from "../assets/images/Pachmarhi_valley_Madhya_Pradesh_INDIA.jpg";
+import sanchistupa from "../assets/images/sanchi-stupa.webp";
+import Masjid from "../assets/images/Masjid.webp";
 
 export default function TourPackages() {
   const [cat, setCat] = useState("All");
@@ -13,7 +20,7 @@ export default function TourPackages() {
       price: "₹2,999",
       cat: "Religious",
       rating: "4.9",
-      img: "/src/assets/images/ujjain-mahakaleshwar.jpg"
+      img: ujjainmahakaleshwar
     },
     {
       id: 2,
@@ -22,7 +29,7 @@ export default function TourPackages() {
       price: "₹7,999",
       cat: "Heritage",
       rating: "4.8",
-      img: "/src/assets/images/khajuraho-fi.webp"
+      img: khajuraho
     },
     {
       id: 3,
@@ -31,7 +38,7 @@ export default function TourPackages() {
       price: "₹12,999",
       cat: "Wildlife",
       rating: "4.7",
-      img: "/src/assets/images/Kanha_Safari_Main.jpg"
+      img: Kanha_Safari_Main
     },
     {
       id: 4,
@@ -39,8 +46,8 @@ export default function TourPackages() {
       days: "2 Days",
       price: "₹8,499",
       cat: "Hill",
-      rating: "4.8",
-      img: "/src/assets/images/Pachmarhi_valley_Madhya_Pradesh_INDIA.jpg"
+      rating: "4.8", 
+      img: Pachmarhi_valley_Madhya_Pradesh_INDIA
     },
     {
       id: 5,
@@ -49,7 +56,7 @@ export default function TourPackages() {
       price: "₹3,999",
       cat: "Heritage",
       rating: "4.9",
-      img: "/src/assets/images/sanchi-stupa.webp"
+      img: sanchistupa
     },
     {
       id: 6,
@@ -58,7 +65,7 @@ export default function TourPackages() {
       price: "₹2,499",
       cat: "City",
       rating: "4.6",
-      img: "/src/assets/images/Masjid.webp"
+      img: Masjid
     },
   ];
 
@@ -76,7 +83,7 @@ export default function TourPackages() {
   {/* Background image with blur */}
   <div className="absolute inset-0 z-0">
     <img
-      src="/src/assets/images/1stsection.jpg"
+      src={firstsection}
       alt="Industrial background"
       className="h-full w-full object-cover blur-[1px]"
     />

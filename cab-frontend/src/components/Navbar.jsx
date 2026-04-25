@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Navbar.css';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { COMPANY_DETAILS } from '../ComponyDetails';
 import { PhoneCall } from "lucide-react";
 
@@ -9,6 +9,7 @@ import { PhoneCall } from "lucide-react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -40,40 +41,42 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <div className={`navbar-links-container ${isOpen ? 'mobile-active' : ''}`}>
-            <NavLink
-              to="/"
-              className={({ isActive }) => (isActive ? "navbar-link-active" : "navbar-link")}
+            <button
+              className={location.pathname === "/" ? "navbar-link-active" : "navbar-link"}
               onClick={() => {
+                navigate("/");
                 setIsOpen(false);
-              }}>Home</NavLink>
-            <NavLink
-              to="/tour-packages"
-              className={({ isActive }) =>
-                isActive ? "navbar-link-active" : "navbar-link"
-              }
+              }}>Home</button>
+            <button
+              className={location.pathname === "/tour-packages" ? "navbar-link-active" : "navbar-link"}
+              onClick={() => {
+                navigate("/tour-packages");
+                setIsOpen(false);
+              }}
             >
               Tour Packages
-            </NavLink>
+            </button>
 
 
 
-            <NavLink
-              to="/about"
-              className={({ isActive }) => (isActive ? "navbar-link-active" : "navbar-link")}
-              onClick={() => setIsOpen(false)}
+            <button
+              className={location.pathname === "/about" ? "navbar-link-active" : "navbar-link"}
+              onClick={() => {
+                navigate("/about");
+                setIsOpen(false);
+              }}
             >
               About Us
-            </NavLink>
-            <NavLink
-              to="/contact-us"
-
-              className={({ isActive }) => (isActive ? "navbar-link-active" : "navbar-link")}
+            </button>
+            <button
+              className={location.pathname === "/contact-us" ? "navbar-link-active" : "navbar-link"}
               onClick={() => {
+                navigate("/contact-us");
                 setIsOpen(false);
               }}
             >
               Contact
-            </NavLink>
+            </button>
 
             <span className="flex items-center space-x-2 navbar-phone">
               <span>{COMPANY_DETAILS.phone}</span>
