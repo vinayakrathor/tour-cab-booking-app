@@ -1,0 +1,48 @@
+/* Navbar.css */
+@import "tailwindcss";
+.navbar {
+  @apply w-full bg-white/90 backdrop-blur-sm shadow-md;
+}
+
+.navbar-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.navbar-inner {
+  @apply flex justify-between items-center h-20;
+}
+
+/* Logo Styles */
+.navbar-logo-wrapper {
+  @apply flex-shrink-0 flex items-center gap-2;
+}
+
+.navbar-logo-icon {
+  @apply w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl;
+}
+
+.navbar-logo-text {
+  @apply font-bold text-2xl text-gray-800;
+}
+
+/* Navigation Links */
+.navbar-links-container {
+  @apply hidden md:flex space-x-8 items-center;
+}
+
+.navbar-link {
+  @apply text-gray-600 hover:text-orange-500 font-medium transition-colors duration-200;
+}
+
+.navbar-link-active {
+  @apply text-gray-800 hover:text-orange-500 font-semibold border-b-2 border-orange-500;
+}
+
+/* Call to Action Styles */
+.navbar-phone {
+  @apply text-orange-500 font-bold;
+}
+
+.navbar-btn {
+  @apply bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-semibold transition duration-300 shadow-lg shadow-orange-500/30;
+}
