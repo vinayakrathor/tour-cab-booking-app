@@ -1,0 +1,71 @@
+@reference "tailwindcss";
+@layer components {
+  .tpPage { @apply bg-gray-50 text-gray-900; }
+
+  .tpHero {
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white;
+  }
+  .tpHeroInner {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16;
+  }
+  .tpKicker { @apply font-extrabold opacity-90; }
+  .tpTitle { @apply text-4xl md:text-5xl font-black mt-2; }
+  .tpSub { @apply mt-3 max-w-2xl leading-relaxed opacity-95; }
+
+  .tpBtns { @apply mt-6 flex gap-3 flex-wrap; }
+  .tpBtnPrimary {
+    @apply bg-white text-orange-600 font-black px-6 py-2 rounded-full;
+  }
+  .tpBtnOutline {
+    @apply border-2 border-white/90 text-white font-black px-6 py-2 rounded-full;
+  }
+
+  .tpSection { @apply py-14; }
+  .tpContainer { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+
+  .tpHead { @apply flex flex-wrap gap-4 items-end justify-between mb-5; }
+  .tpH2 { @apply text-2xl md:text-3xl font-black; }
+  .tpMuted { @apply text-gray-500 mt-1; }
+
+  .tpCats { @apply flex gap-2 flex-wrap; }
+  .tpCat {
+    @apply bg-white border border-gray-200 px-4 py-2 rounded-full font-extrabold;
+  }
+  .tpCat.active {
+    @apply bg-orange-50 border-orange-300 text-orange-600;
+  }
+
+  .tpGrid { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4; }
+
+  .tpCard {
+    @apply bg-white rounded-2xl shadow-lg shadow-black/5 border border-gray-100 p-4;
+  }
+
+  .tpCardTop { @apply flex items-center justify-between mb-3; }
+
+  .tpBadge {
+    @apply bg-black/70 text-white px-3 py-1 rounded-full font-extrabold text-sm;
+  }
+  .tpChip {
+    @apply bg-orange-500 text-white px-3 py-1 rounded-full font-extrabold text-sm;
+  }
+
+  .tpCardTitle { @apply font-black text-lg; }
+
+  .tpMeta { @apply mt-3 flex items-center justify-between text-gray-600 font-bold; }
+  .tpPrice { @apply text-gray-900 font-black; }
+
+  .tpActions { @apply mt-4 flex gap-2 flex-wrap; }
+  .tpBtnSmall {
+    @apply bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-full font-black;
+  }
+  .tpBtnSmallOutline {
+    @apply border-2 border-gray-900 text-gray-900 px-5 py-2 rounded-full font-black;
+  }
+
+  .tpCta{
+    @apply mt-10 bg-white rounded-2xl shadow-lg shadow-black/5 border border-gray-100 p-5
+           flex items-center justify-between gap-4 flex-wrap;
+  }
+  .tpCtaTitle{ @apply font-black text-xl; }
+}
