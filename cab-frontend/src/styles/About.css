@@ -1,0 +1,310 @@
+/* Scoped theme (no global variables) */
+.aboutPage{
+  --brand: #ff7a00;
+  --brandDark: #e56c00;
+  --text: #111827;
+  --muted: #6b7280;
+  --bg: #f7f8fb;
+  --shadow: 0 10px 30px rgba(16,24,40,.10);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.aboutContainer{
+  width: min(1150px, 92%);
+  margin: 0 auto;
+}
+
+/* HERO */
+.aboutHero{
+  position: relative;
+  padding: 72px 0;
+  overflow: hidden;
+  background: #0b0b0b;
+}
+
+.aboutHeroBg{
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.03);
+  filter: saturate(1.1);
+}
+
+.aboutHeroOverlay{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(255,122,0,.55) 0%, rgba(0,0,0,.42) 70%);
+}
+
+.aboutHeroContent{
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.aboutKicker{
+  margin: 0 0 10px;
+  font-weight: 800;
+  opacity: .9;
+  letter-spacing: .4px;
+}
+
+.aboutTitle{
+  margin: 0 0 12px;
+  font-weight: 900;
+  font-size: clamp(34px, 4vw, 56px);
+  line-height: 1.05;
+}
+
+.aboutSub{
+  margin: 0;
+  max-width: 760px;
+  font-size: 18px;
+  opacity: .95;
+  line-height: 1.8;
+}
+
+.aboutHeroBtns{
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.aboutBtnPrimary{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand);
+  border: 1px solid var(--brand);
+  color: #fff;
+  font-weight: 900;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.aboutBtnPrimary:hover{
+  background: var(--brandDark);
+  border-color: var(--brandDark);
+  color:#fff;
+}
+
+.aboutBtnOutline{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,.85);
+  color: #fff;
+  font-weight: 900;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.aboutBtnOutline:hover{
+  background: rgba(255,255,255,.10);
+  border-color: #fff;
+  color:#fff;
+}
+
+.aboutBtnOutlineDark{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid #111827;
+  color: #111827;
+  font-weight: 900;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.aboutBtnOutlineDark:hover{
+  background: #111827;
+  color:#fff;
+}
+
+/* SECTION */
+.aboutSection{
+  padding: 60px 0;
+}
+
+.aboutGrid{
+  display: grid;
+  grid-template-columns: 1.3fr .9fr;
+  gap: 18px;
+}
+
+.aboutCard{
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.aboutH2{
+  margin: 0 0 10px;
+  font-weight: 900;
+}
+
+.aboutText{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+.aboutPoints{
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.aboutPoint{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.aboutDot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--brand);
+  box-shadow: 0 0 0 6px rgba(255,122,0,.18);
+}
+
+/* Stats */
+.aboutStatsCard{ }
+.aboutStats{
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.aboutStat{
+  background: #f9fafb;
+  border-radius: 14px;
+  padding: 14px;
+  text-align: center;
+  border: 1px solid rgba(17,24,39,.06);
+}
+
+.aboutStatNum{
+  font-weight: 900;
+  font-size: 26px;
+}
+
+.aboutStatLbl{
+  margin-top: 4px;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* mini CTA */
+.aboutCtaMini{
+  margin-top: 14px;
+  background: rgba(255,122,0,.10);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.aboutCtaTitle{
+  font-weight: 900;
+}
+
+.aboutCtaSub{
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.aboutBtnSmall{
+  background: var(--brand);
+  border: 1px solid var(--brand);
+  color: #fff;
+  font-weight: 900;
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.aboutBtnSmall:hover{
+  background: var(--brandDark);
+  border-color: var(--brandDark);
+  color:#fff;
+}
+
+/* Services strip */
+.aboutStrip{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.aboutStripItem{
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 14px;
+  font-weight: 900;
+  text-align: center;
+  border: 1px solid rgba(17,24,39,.06);
+}
+
+/* Bottom CTA */
+.aboutBottom{
+  background: #fff;
+  border-top: 1px solid rgba(17,24,39,.08);
+  padding: 45px 0;
+}
+
+.aboutBottomInner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.aboutBottomTitle{
+  margin: 0;
+  font-weight: 900;
+}
+
+.aboutBottomSub{
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.aboutBottomBtns{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 991px){
+  .aboutGrid{ grid-template-columns: 1fr; }
+  .aboutStrip{ grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 520px){
+  .aboutHero{ padding: 52px 0; }
+  .aboutSub{ font-size: 15px; }
+  .aboutStrip{ grid-template-columns: 1fr; }
+}
