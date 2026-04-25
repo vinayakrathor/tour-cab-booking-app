@@ -1,0 +1,100 @@
+/* Fleet section wrapper */
+.fleetWrap{
+  background:#ffffff;
+  padding: 40px 0;
+}
+
+/* Top heading */
+.fleetTitleTop{
+  font-weight: 900;
+  margin: 0;
+  color: #111827;
+}
+
+.fleetSubTop{
+  margin-top: 8px;
+  color: #6b7280;
+}
+
+/* Car image */
+.fleetCar{
+  max-height: 320px;
+  object-fit: contain;
+}
+
+/* Right side text */
+.fleetMainTitle{
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.fleetMainSub{
+  font-weight: 800;
+  color: #111827;
+  opacity: .9;
+}
+
+.fleetDesc{
+  margin-top: 14px;
+  color: #6b7280;
+}
+
+/* Button (no bootstrap dependency needed) */
+.fleetBtn{
+  display: inline-block;
+  margin-top: 10px;
+  background: #ff7a00;
+  border: 1px solid #ff7a00;
+  color: #fff;
+  font-weight: 900;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.fleetBtn:hover{
+  background: #e56c00;
+  border-color: #e56c00;
+  color:#fff;
+}
+
+/* Vehicle type boxes */
+.fleetTypes{
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.fleetType{
+  width: 220px;
+  height: 110px;
+  border: 4px solid #ff7a00;
+  background: #fff;
+  border-radius: 0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  gap: 6px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.fleetType i{ font-size: 28px; }
+
+.fleetType.active::before{
+  content:"";
+  position:absolute;
+  top:-18px;
+  left:50%;
+  transform: translateX(-50%);
+  width:0; height:0;
+  border-left:14px solid transparent;
+  border-right:14px solid transparent;
+  border-bottom:14px solid #ff7a00;
+}
+
+.fleetType.active{
+  outline: 6px solid rgba(255,122,0,.2);
+}

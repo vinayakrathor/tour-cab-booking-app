@@ -1,109 +1,52 @@
-// import React from 'react';
-// import '../styles/Navbar.css';
-// import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import '../styles/Navbar.css';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { COMPANY_DETAILS } from '../ComponyDetails';
+import { PhoneCall } from "lucide-react";
 
-// const navigate = useNavigate();
-// const location = useLocation();
-// const Navbar = () => {
-  
-//     return (
-//     <nav className="navbar">
-//       <div className="navbar-container">
-//         <div className="navbar-inner">
-          
-//           {/* Logo Area */}
-//           <div className="navbar-logo-wrapper">
-//             <div className="navbar-logo-icon">
-//               C
-//             </div>
-//             <span className="navbar-logo-text">CityCabs</span>
-//           </div>
 
-//           {/* Navigation Links */}
-//           <div className="navbar-links-container">
-//             <a href="#home" className="navbar-link-active">Home</a>
-//             <a href="#fleet" className="navbar-link">Our Fleet</a>
-//             <a href="#about" className="navbar-link">About Us</a>
-//             <a href="#contact" className="navbar-link">Contact</a>
-            
-//             <span className="navbar-phone">+91 98765 43210</span>
-            
-//             <button className="navbar-btn">
-//               Book a Ride
-//             </button>
-//           </div>
-          
-//         </div>
-//       </div>
-//     </nav>
-//   );
-
-// };
-
-// export default Navbar;
-
-import React, { useState } from "react";
-import "../styles/Navbar.css";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
 
-  const goHome = () => {
-    setOpen(false);
-    navigate("/");
-  };
-
-  const goSection = (id) => {
-    setOpen(false);
-
-    // if not on home, go to home first
-    if (location.pathname !== "/") {
-      navigate("/");
-    }
-
-    // then scroll after render
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 120);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-inner">
+
           {/* Logo Area */}
-          <div className="navbar-logo-wrapper" onClick={goHome} role="button" tabIndex={0}>
-            <div className="navbar-logo-icon">C</div>
-            <span className="navbar-logo-text">CityCabs</span>
+          <div className="navbar-logo-wrapper">
+            <div className="navbar-logo-icon">
+              S
+            </div>
+            <span className="navbar-logo-text">{COMPANY_DETAILS.name}</span>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile Menu Toggle Button */}
           <button
-            className="navbar-menu-btn"
-            type="button"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
+            className={`navbar-toggle-btn ${isOpen ? 'open' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle navigation"
           >
-            <span className="navbar-menu-line" />
-            <span className="navbar-menu-line" />
-            <span className="navbar-menu-line" />
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
           </button>
 
           {/* Navigation Links */}
-          <div className={`navbar-links-container ${open ? "open" : ""}`}>
+          <div className={`navbar-links-container ${isOpen ? 'mobile-active' : ''}`}>
             <NavLink
               to="/"
-              end
               className={({ isActive }) => (isActive ? "navbar-link-active" : "navbar-link")}
-              onClick={() => setOpen(false)}
-            >
-              Home
-            </NavLink>
-             <NavLink
+              onClick={() => {
+                setIsOpen(false);
+              }}>Home</NavLink>
+            <NavLink
               to="/tour-packages"
               className={({ isActive }) =>
                 isActive ? "navbar-link-active" : "navbar-link"
@@ -112,37 +55,40 @@ const Navbar = () => {
               Tour Packages
             </NavLink>
 
-            
+
 
             <NavLink
               to="/about"
               className={({ isActive }) => (isActive ? "navbar-link-active" : "navbar-link")}
-              onClick={() => setOpen(false)}
+              onClick={() => setIsOpen(false)}
             >
               About Us
             </NavLink>
+            <NavLink
+              to="/contact-us"
 
-            <a
-              href="#contact"
-              className="navbar-link"
-              onClick={(e) => {
-                e.preventDefault();
-                goSection("contact");
+              className={({ isActive }) => (isActive ? "navbar-link-active" : "navbar-link")}
+              onClick={() => {
+                setIsOpen(false);
               }}
             >
               Contact
-            </a>
+            </NavLink>
 
-            <span className="navbar-phone">+91 98765 43210</span>
-
-            <button className="navbar-btn" onClick={() => goSection("contact")}>
+            <span className="flex items-center space-x-2 navbar-phone">
+              <span>{COMPANY_DETAILS.phone}</span>
+              <PhoneCall size={20} />
+            </span>
+            {/* <button className="navbar-btn">
               Book a Ride
-            </button>
+            </button> */}
           </div>
+
         </div>
       </div>
     </nav>
   );
+
 };
 
 export default Navbar;

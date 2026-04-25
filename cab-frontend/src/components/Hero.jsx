@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import AddVia from './AddVia';
+import {  } from "lucide-react";
+
 
 const Hero = () => {
   const [activeTab, setActiveTab] = useState('oneway');
@@ -38,7 +41,7 @@ const Hero = () => {
             <label className="block text-sm font-bold text-gray-800 mb-1">Travel Date</label>
             <DateAndTimeInputs />
             <button className="text-blue-500 text-sm font-semibold flex items-center gap-1 mb-4 hover:text-blue-700">
-              <span>+</span> Add via
+               <AddVia/>
             </button>
             <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200">
               Search
@@ -64,7 +67,7 @@ const Hero = () => {
               <input type="date" className="w-full border border-gray-300 rounded px-3 py-2 text-gray-400 focus:outline-none focus:border-orange-500" />
             </div>
             <button className="text-blue-500 text-sm font-semibold flex items-center gap-1 mb-4 hover:text-blue-700">
-              <span>+</span> Add via
+              <AddVia/>
             </button>
             <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200">
               Search
@@ -152,7 +155,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 flex flex-col lg:flex-row gap-8 items-center py-12">
         
         {/* Left Side: Booking Form */}
-        <div className="w-full lg:w-[450px] bg-white rounded-lg shadow-2xl p-4">
+        <div className="w-full lg:w-[500px] bg-white rounded-lg shadow-2xl p-4">
           
           {/* Tabs */}
           <div className="flex flex-wrap gap-2 mb-6">
@@ -160,7 +163,7 @@ const Hero = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative px-4 py-2 text-sm font-bold rounded-md transition-colors ${
+                className={`relative  py-2 px-1.5 text-xs lg:py-2 lg:px-2.5 lg:text-sm font-bold rounded-md transition-colors ${
                   activeTab === tab.id 
                     ? 'bg-orange-500 text-white' 
                     : 'bg-gray-800 text-white hover:bg-gray-700'
@@ -176,14 +179,14 @@ const Hero = () => {
           </div>
 
           {/* Form Area */}
-          <div className="min-h-[400px]">
+          <div className="min-h-100">
              {renderFormContent()}
           </div>
         </div>
 
         {/* Right Side: Text & Car Image */}
         <div className="flex-1 w-full lg:pl-10 mt-10 lg:mt-0 relative">
-           <div className="bg-black/60 backdrop-blur-sm p-8 rounded-lg border border-white/20 text-center lg:text-left shadow-xl relative z-20">
+           <div className="bg-black/35 backdrop-blur-sm p-8 rounded-lg border border-white/20 text-center lg:text-left shadow-xl relative z-20">
              <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-md">
                Ride With Confidence, Anywhere Anytime
              </h1>
