@@ -1,14 +1,14 @@
 @reference "tailwindcss";
 @layer components {
-  .tpPage { @apply bg-gray-50 text-gray-900; }
+  .tpPage { @apply bg-gray-50 text-black; }
 
   .tpHero {
-    @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white;
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white opacity-90 relative bg-center bg-white h-[300px] flex items-center;
   }
   .tpHeroInner {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16;
   }
-  .tpKicker { @apply font-extrabold opacity-90; }
+  .tpKicker { @apply font-bold opacity-90; }
   .tpTitle { @apply text-4xl md:text-5xl font-black mt-2; }
   .tpSub { @apply mt-3 max-w-2xl leading-relaxed opacity-95; }
 
@@ -17,7 +17,8 @@
     @apply bg-white text-orange-600 font-black px-6 py-2 rounded-full;
   }
   .tpBtnOutline {
-    @apply border-2 border-white/90 text-white font-black px-6 py-2 rounded-full;
+    @apply border-2 border-white/90 text-white font-black px-6 py-2 rounded-full
+     hover:bg-white hover:text-orange-500;
   }
 
   .tpSection { @apply py-14; }
@@ -29,7 +30,7 @@
 
   .tpCats { @apply flex gap-2 flex-wrap; }
   .tpCat {
-    @apply bg-white border border-gray-200 px-4 py-2 rounded-full font-extrabold;
+    @apply bg-white border border-gray-200 px-4 py-2 rounded-full font-bold;
   }
   .tpCat.active {
     @apply bg-orange-50 border-orange-300 text-orange-600;
@@ -38,16 +39,16 @@
   .tpGrid { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4; }
 
   .tpCard {
-    @apply bg-white rounded-2xl shadow-lg shadow-black/5 border border-gray-100 p-4;
+    @apply bg-white rounded-2xl shadow-lg shadow-black/5 border border-gray-100 p-0;
   }
 
   .tpCardTop { @apply flex items-center justify-between mb-3; }
 
   .tpBadge {
-    @apply bg-black/70 text-white px-3 py-1 rounded-full font-extrabold text-sm;
+    @apply bg-black/10 backdrop-blur-sm text-yellow-400 px-2  rounded font-bold text-sm shadow-sm;
   }
   .tpChip {
-    @apply bg-orange-500 text-white px-3 py-1 rounded-full font-extrabold text-sm;
+    @apply bg-orange-500 text-white px-3 py-1 rounded-full font-bold text-sm;
   }
 
   .tpCardTitle { @apply font-black text-lg; }

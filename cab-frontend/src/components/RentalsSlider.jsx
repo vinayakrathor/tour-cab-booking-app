@@ -9,22 +9,22 @@ const RentalsSlider = () => {
       id: 1,
       name: 'Ahmedabad',
       // Using placeholder images - replace with your actual architecture photos
-      img: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=500&q=80',
+      img: '/src/assets/images/Ahmedabad.png',
     },
     {
       id: 2,
       name: 'Bhavanagar',
-      img: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=500&q=80',
+      img: '/src/assets/images/Bhavanagar.jpg',
     },
     {
       id: 3,
       name: 'Bhuj',
-      img: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=500&q=80',
+      img: '/src/assets/images/bhuj.jpg',
     },
     {
       id: 4,
       name: 'Jamnagar',
-      img: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=500&q=80',
+      img: '/src/assets/images/jamnagar-1.jpg',
     },
     {
       id: 5,
@@ -34,7 +34,7 @@ const RentalsSlider = () => {
     {
       id: 6,
       name: 'Pune',
-      img: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=500&q=80',
+      img: '/src/assets/images/pune.jpg',
     }
   ];
 
@@ -88,7 +88,7 @@ const RentalsSlider = () => {
                   <img 
                     src={city.img} 
                     alt={`Rentals in ${city.name}`} 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full  hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 
