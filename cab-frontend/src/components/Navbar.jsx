@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Navbar.css';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { COMPANY_DETAILS } from '../ComponyDetails';
 
 
@@ -20,9 +20,9 @@ const Navbar = () => {
           {/* Logo Area */}
           <div className="navbar-logo-wrapper">
             <div className="navbar-logo-icon">
-              A
+              S
             </div>
-            <span className="navbar-logo-text">AssureCab</span>
+            <span className="navbar-logo-text">{COMPANY_DETAILS.name}</span>
           </div>
 
           {/* Mobile Menu Toggle Button */}
@@ -38,29 +38,46 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <div className={`navbar-links-container ${isOpen ? 'mobile-active' : ''}`}>
-            <button className="navbar-link-active"
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? "navbar-link-active" : "navbar-link")}
+            onClick={() => {
+              setIsOpen(false);
+              }}>Home</NavLink>
+            <NavLink
+              to="/tour-packages"
+              className={({ isActive }) =>
+                isActive ? "navbar-link-active" : "navbar-link"
+              }
+            >
+              Tour Packages
+            </NavLink>
+
+            
+
+            <NavLink
+              to="/about"
+              className={({ isActive }) => (isActive ? "navbar-link-active" : "navbar-link")}
+              onClick={() => setIsOpen(false)}
+            >
+              About Us
+            </NavLink>
+            <NavLink
+              to="/contact-us"
+              
+              className={({ isActive }) => (isActive ? "navbar-link-active" : "navbar-link")}
               onClick={() => {
                 setIsOpen(false);
-                navigate('/')
-              }}>
-              Home
-            </button>
-            <a href="#fleet" className="navbar-link" onClick={() => setIsOpen(false)}>Routes</a>
-            <a href="#about" className="navbar-link" onClick={() => setIsOpen(false)}>About Us</a>
-            <button className="navbar-link"
-              onClick={() => {
-                setIsOpen(false);
-                navigate("/contact-us");
               }}
             >
               Contact
-            </button>
+            </NavLink>
 
             <span className="navbar-phone">{COMPANY_DETAILS.phone}</span>
 
-            <button className="navbar-btn">
+            {/* <button className="navbar-btn">
               Book a Ride
-            </button>
+            </button> */}
           </div>
 
         </div>
