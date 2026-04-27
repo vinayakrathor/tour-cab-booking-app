@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import cab1 from '../assets/images/Assure Cab.png';
-import cab2 from '../assets/images/Assure Cab (1).png';
-import cab3 from '../assets/images/Assure Cab (2).png';
+import cab1 from '../assets/images/ertiga.jpeg';
+import cab2 from '../assets/images/swiftdzire.jpeg';
+import cab3 from '../assets/images/baleno.jpeg';
 
 const FleetSlider = () => {
     const [activeCar, setActiveCar] = useState('sedan'); // Default active tab
