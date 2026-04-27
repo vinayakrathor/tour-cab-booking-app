@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import ahmedabad from '../assets/images/Ahmedabad.png';
-import bhavanagar from '../assets/images/Bhavanagar.jpg';
-import bhuj from '../assets/images/bhuj.jpg';
+import indore from '../assets/images/Indore.jpg';
+import bhopal from '../assets/images/bhopal.jpg';
+import ujjain from '../assets/images/ujjain-mahakaleshwar.jpg';
 import jamnagar from '../assets/images/jamnagar-1.jpg';
 // import mumbai from '../assets/images/mumbai.jpg';
 import pune from '../assets/images/pune.jpg';
@@ -13,35 +13,25 @@ const RentalsSlider = () => {
   const destinations = [
     {
       id: 1,
-      name: 'Ahmedabad',
+      name: 'Indore',
       // Using placeholder images - replace with your actual architecture photos
-      img: ahmedabad,
+      img: indore,
     },
     {
       id: 2,
-      name: 'Bhavanagar',
-      img: bhavanagar,
+      name: 'Ujjain',
+      img: ujjain,
     },
     {
       id: 3,
-      name: 'Bhuj',
-      img: bhuj,
+      name: 'Bhopal',
+      img: bhopal,
     },
     {
       id: 4,
-      name: 'Jamnagar',
-      img: jamnagar,
-    },
-    {
-      id: 5,
       name: 'Mumbai',
       img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVtYmFpfGVufDB8fDB8fHww&w=1000&q=80',
     },
-    {
-      id: 6,
-      name: 'Pune',
-      img: pune,
-    }
   ];
 
   // Function to handle the left/right scrolling
