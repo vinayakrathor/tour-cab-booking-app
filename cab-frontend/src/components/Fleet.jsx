@@ -23,7 +23,7 @@ const FleetSlider = () => {
             subtitle: 'Ride with Friends and Family.',
             desc: 'An AC ride, which take your ride to next level with the best luxury car either for a weekend getaway trip or for an extended vacation away from the big city.',
             // img: 'https://pngimg.com/d/toyota_PNG1945.png',
-                        img: cab1
+                        img: cab2
 
         },
         suv: {
@@ -32,7 +32,7 @@ const FleetSlider = () => {
             subtitle: 'Ride with extra large space',
             desc: 'A very comfortable AC ride with extra large space for a very relaxed ride for all long and short drives.',
             // img: 'https://pngimg.com/d/ertiga_PNG43.png',
-                        img: cab2
+                        img: cab1
 
         }
     };
