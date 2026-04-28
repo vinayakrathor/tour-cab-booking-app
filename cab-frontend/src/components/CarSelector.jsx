@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 
-export const CarSelector = () => {
+export const CarSelector = (routeDistance) => {
   // ✅ NEW: Car Pricing Data
  const carOptions = [
   { name: "Swift / Baleno", nonAc: 10, ac: 11 },
@@ -13,12 +13,14 @@ export const CarSelector = () => {
   { name: "Innova Crysta", nonAc: 18, ac: 19 },
   { name: "Traveller", nonAc: 25, ac: 27 },
 ];
+console.log("route dist:",routeDistance.distance);
+
  // ✅ NEW: Car Selector UI (NO CSS CHANGED)
 // ✅ NEW: States
 const [selectedCar, setSelectedCar] = useState(carOptions[0]);
 const [isAc, setIsAc] = useState(true);
   
-  const [distance, setDistance] = useState('');
+  const [distance, setDistance] = useState(routeDistance.distance || 0);
   const [toll, setToll] = useState(0);
 
   const rate = isAc ? selectedCar.ac : selectedCar.nonAc;
@@ -82,7 +84,7 @@ const [isAc, setIsAc] = useState(true);
       <input
         type="number"
         placeholder="Enter distance (km)"
-        value={distance}
+        value={routeDistance.distance}
         onChange={(e) => setDistance(e.target.value)}
         className="w-full border border-gray-300 rounded px-3 py-2 mb-2"
       />
