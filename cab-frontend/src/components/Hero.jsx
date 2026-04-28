@@ -5,7 +5,9 @@ import { CarSelector } from './CarSelector';
 
 const Hero = () => {
   const [activeTab, setActiveTab] = useState('oneway');
-
+  const [fromCity, setFromCity] = useState('');
+  const [toCity, setToCity] = useState('');
+  const [distance, setDistance] = useState(0);
   
 
   const tabs = [
@@ -13,6 +15,36 @@ const Hero = () => {
     { id: 'hourly', label: 'Hourly Rental' },
     { id: 'airport', label: 'Airport/transfer' },
   ];
+
+  const cities = [
+  "Indore","Ujjain","Dewas","Khandwa","Khargone",
+  "Bhopal","Khatu Shyam","Sawariya Seth","Nashik","Bhimashankar"
+];
+
+const distanceMap = {
+  Indore: { Ujjain: 55, Dewas: 40, Khandwa: 130, Khargone: 140, Bhopal: 190, "Khatu Shyam": 600, "Sawariya Seth": 300, Nashik: 450, Bhimashankar: 650 },
+  Ujjain: { Indore: 55, Dewas: 35, Bhopal: 180 },
+  Dewas: { Indore: 40, Ujjain: 35, Bhopal: 160 },
+  Khandwa: { Indore: 130, Khargone: 90 },
+  Khargone: { Indore: 140, Khandwa: 90 },
+  Bhopal: { Indore: 190, Ujjain: 180, Dewas: 160 },
+  "Khatu Shyam": { Indore: 600, Bhopal: 650 },
+  "Sawariya Seth": { Indore: 300 },
+  Nashik: { Indore: 450, Bhimashankar: 110 },
+  Bhimashankar: { Nashik: 110, Indore: 650 }
+};
+
+const calculateDistance = (from, to) => {
+  if (!from || !to) return;
+
+  if (distanceMap[from]?.[to]) {
+    setDistance(distanceMap[from][to]);
+  } else if (distanceMap[to]?.[from]) {
+    setDistance(distanceMap[to][from]);
+  } else {
+    setDistance(0);
+  }
+};
 
   // Helper to render standard Date & Time inputs
   const DateAndTimeInputs = () => (
@@ -28,116 +60,146 @@ const Hero = () => {
 
   
 
-  const renderFormContent = () => {
-    switch (activeTab) {
-      case 'oneway':
-        return (
-          <div className="animate-fadeIn">
-            <div className="mb-4">
-              <label className="block text-sm font-bold text-gray-800 mb-1">From City</label>
-              <input type="text" placeholder="enter from city" className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500" />
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-bold text-gray-800 mb-1">Destination City</label>
-              <input type="text" placeholder="enter to city" className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500" />
-            </div>
+ const renderFormContent = () => {
+  switch (activeTab) {
 
-            {/* ✅ ADDED HERE */}
-            <CarSelector />
+    case 'oneway':
+      return (
+        <div className="animate-fadeIn">
 
-            {/* <label className="block text-sm font-bold text-gray-800 mb-1">Travel Date</label>
-            <DateAndTimeInputs />
-
-            <button className="text-blue-500 text-sm font-semibold flex items-center gap-1 mb-4 hover:text-blue-700">
-               <AddVia/>
-            </button> */}
-
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200">
-              Search
-            </button>
+          {/* FROM CITY */}
+          <div className="mb-4">
+            <label className="block text-sm font-bold text-gray-800 mb-1">From City</label>
+            <select
+              value={fromCity}
+              onChange={(e) => {
+                const value = e.target.value;
+                setFromCity(value);
+                calculateDistance(value, toCity);
+              }}
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500"
+            >
+              <option value="">Select city</option>
+              {cities.map((city, i) => (
+                <option key={i} value={city}>{city}</option>
+              ))}
+            </select>
           </div>
-        );
 
-      case 'hourly':
-        return (
-          <div className="animate-fadeIn">
-            <div className="mb-4">
-              <label className="block text-sm font-bold text-gray-800 mb-1">Pickup Location</label>
-              <input type="text" placeholder="enter from city" className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500" />
-            </div>
-
-            {/* ✅ ADDED HERE */}
-            <CarSelector />
-
-            <div className="mb-4">
-              <label className="block text-sm font-bold text-gray-800 mb-1">Per Hrs / Per Kms</label>
-              <select className="w-full border border-gray-300 rounded px-3 py-2 bg-white focus:outline-none focus:border-orange-500">
-                <option>4Hrs/40Kms</option>
-                <option>8Hrs/80Kms</option>
-                <option>12Hrs/120Kms</option>
-              </select>
-            </div>
-
-            {/* <label className="block text-sm font-bold text-gray-800 mb-1">Travel Date</label>
-            <DateAndTimeInputs /> */}
-
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200">
-              Search
-            </button>
+          {/* TO CITY */}
+          <div className="mb-4">
+            <label className="block text-sm font-bold text-gray-800 mb-1">Destination City</label>
+            <select
+              value={toCity}
+              onChange={(e) => {
+                const value = e.target.value;
+                setToCity(value);
+                calculateDistance(fromCity, value);
+              }}
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500"
+            >
+              <option value="">Select city</option>
+              {cities.map((city, i) => (
+                <option key={i} value={city}>{city}</option>
+              ))}
+            </select>
           </div>
-        );
 
-      case 'airport':
-        return (
-          <div className="animate-fadeIn">
-            <div className="flex gap-4 mb-4">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="airportDir" defaultChecked className="text-orange-500 focus:ring-orange-500" />
-                <span className="text-sm font-bold text-gray-800">Going To Airport</span>
-              </label>
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="airportDir" className="text-orange-500 focus:ring-orange-500" />
-                <span className="text-sm font-bold text-gray-800">Coming From Airport</span>
-              </label>
+          {/* DISTANCE DISPLAY */}
+          {distance > 0 && (
+            <div className="mb-4 text-green-600 font-semibold">
+              Distance: {distance} KM
             </div>
+          )}
 
-            {/* ✅ ADDED HERE */}
-            <CarSelector />
+          {/* CAR SELECTOR */}
+          <CarSelector distance={distance} />
 
-            <div className="mb-4">
-              <label className="block text-sm font-bold text-gray-800 mb-1">In City</label>
-              <select className="w-full border border-gray-300 rounded px-3 py-2 bg-white focus:outline-none focus:border-orange-500">
-                <option>AHMEDABAD</option>
-                <option>MUMBAI</option>
-                <option>DELHI</option>
-              </select>
-            </div>
+          <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200">
+            Search
+          </button>
+        </div>
+      );
 
-            <div className="mb-4">
-              <label className="block text-sm font-bold text-gray-800 mb-1">Airport</label>
-              <select className="w-full border border-gray-300 rounded px-3 py-2 bg-white focus:outline-none focus:border-orange-500">
-                <option>Ahmedabad Airport (AMD), Hansol, Ahmedabad, Gujarat</option>
-              </select>
-            </div>
 
-            <div className="mb-4">
-              <label className="block text-sm font-bold text-gray-800 mb-1">Pickup Location</label>
-              <input type="text" placeholder="enter pickup location" className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500" />
-            </div>
+    case 'hourly':
+      return (
+        <div className="animate-fadeIn">
 
-            <label className="block text-sm font-bold text-gray-800 mb-1">Travel Date</label>
-            <DateAndTimeInputs />
-
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200">
-              Search
-            </button>
+          <div className="mb-4">
+            <label className="block text-sm font-bold text-gray-800 mb-1">Pickup Location</label>
+            <select className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500">
+              <option>Select city</option>
+              {cities.map((city, i) => (
+                <option key={i}>{city}</option>
+              ))}
+            </select>
           </div>
-        );
 
-      default:
-        return null;
-    }
-  };
+          <CarSelector />
+
+          <div className="mb-4">
+            <label className="block text-sm font-bold text-gray-800 mb-1">Per Hrs / Per Kms</label>
+            <select className="w-full border border-gray-300 rounded px-3 py-2 bg-white focus:outline-none focus:border-orange-500">
+              <option>4Hrs/40Kms</option>
+              <option>8Hrs/80Kms</option>
+              <option>12Hrs/120Kms</option>
+            </select>
+          </div>
+
+          <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200">
+            Search
+          </button>
+        </div>
+      );
+
+
+    case 'airport':
+      return (
+        <div className="animate-fadeIn">
+
+          <div className="flex gap-4 mb-4">
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="airportDir" defaultChecked />
+              <span className="text-sm font-bold text-gray-800">Going To Airport</span>
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="airportDir" />
+              <span className="text-sm font-bold text-gray-800">Coming From Airport</span>
+            </label>
+          </div>
+
+          <CarSelector />
+
+          <div className="mb-4">
+            <label className="block text-sm font-bold text-gray-800 mb-1">In City</label>
+            <select className="w-full border border-gray-300 rounded px-3 py-2">
+              {cities.map((city, i) => (
+                <option key={i}>{city}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-bold text-gray-800 mb-1">Pickup Location</label>
+            <select className="w-full border border-gray-300 rounded px-3 py-2">
+              {cities.map((city, i) => (
+                <option key={i}>{city}</option>
+              ))}
+            </select>
+          </div>
+
+          <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200">
+            Search
+          </button>
+        </div>
+      );
+
+
+    default:
+      return null;
+  }
+};
 
   return (
     <div className="relative  w-full bg-orange-100 flex items-center">

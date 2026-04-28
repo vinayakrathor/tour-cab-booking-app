@@ -3,6 +3,7 @@ import '../styles/Navbar.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { COMPANY_DETAILS } from '../ComponyDetails';
 import { PhoneCall } from "lucide-react";
+import logo from '../assets/images/logo1.jpeg';
 
 
 
@@ -22,11 +23,15 @@ const Navbar = () => {
 
           {/* Logo Area */}
           <div className="navbar-logo-wrapper">
-            <div className="navbar-logo-icon">
-              S
+              <div className="navbar-logo-icon">
+                <img 
+                  src={logo}
+                  alt="Company Logo"
+                  className="navbar-logo-img"
+                />
+              </div>
+              <span className="navbar-logo-text">{COMPANY_DETAILS.name}</span>
             </div>
-            <span className="navbar-logo-text">{COMPANY_DETAILS.name}</span>
-          </div>
 
           {/* Mobile Menu Toggle Button */}
           <button

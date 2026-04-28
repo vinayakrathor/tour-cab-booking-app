@@ -1,5 +1,6 @@
 import "../styles/About.css";
 import heroImg from "../assets/hero.png"; // aapke assets me already hai
+import { COMPANY_DETAILS } from "../ComponyDetails";
 
 export default function About() {
   return (
@@ -13,7 +14,7 @@ export default function About() {
         <div className="aboutHeroOverlay" />
 
         <div className="aboutContainer aboutHeroContent">
-          <p className="aboutKicker">CityCabs</p>
+          <p className="aboutKicker">{COMPANY_DETAILS.name}</p>
           <h1 className="aboutTitle">About Us</h1>
           <p className="aboutSub">
             We provide safe, comfortable and on-time taxi services for local city rides,
@@ -21,12 +22,12 @@ export default function About() {
           </p>
 
           <div className="aboutHeroBtns">
-            <a className="aboutBtnPrimary" href="tel:+919876543210">
+            <a className="aboutBtnPrimary" href={`tel:${COMPANY_DETAILS.phone.replace(/\s/g, '')}`}>
               Call Now
             </a>
             <a
               className="aboutBtnOutline"
-              href="https://wa.me/919876543210"
+              href={`https://wa.me/${COMPANY_DETAILS.phone.replace(/\s/g, '')}`}
               target="_blank"
               rel="noreferrer"
             >
@@ -44,7 +45,7 @@ export default function About() {
             <div className="aboutCard">
               <h2 className="aboutH2">Who we are</h2>
               <p className="aboutText">
-                CityCabs is a customer-first cab service built for reliability. Our focus is
+                {COMPANY_DETAILS.name} is a customer-first cab service built for reliability. Our focus is
                 clean vehicles, professional drivers, and smooth booking experience.
               </p>
 
@@ -119,8 +120,10 @@ export default function About() {
           </div>
 
           <div className="aboutBottomBtns">
-            <a className="aboutBtnPrimary" href="tel:+919876543210">Call</a>
-            <a className="aboutBtnOutlineDark" href="/#contact">Contact Form</a>
+            <a className="aboutBtnPrimary" href={`tel:${COMPANY_DETAILS.phone.replace(/\s/g, '')}`}>Call</a>
+            <a className="aboutBtnOutlineDark" href={`https://wa.me/${COMPANY_DETAILS.phone.replace(/\s/g, '')}`} target="_blank" rel="noreferrer">
+              WhatsApp
+            </a>
           </div>
         </div>
       </section>

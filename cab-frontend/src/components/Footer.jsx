@@ -70,18 +70,18 @@ export default function Footer() {
                         <Phone size={20} /> <a href="tel:+917490866866" className="hover:text-white">{COMPANY_DETAILS.phone}</a>
                     </p>
                     <div className="flex space-x-4 mt-3">
-                        <a href="#" className="hover:text-white">
+                        <a href="https://www.facebook.com/rocky.puware" className="hover:text-white">
                             <FontAwesomeIcon icon={faFacebook} />
                         </a>
-                        <a href="#" className="hover:text-white">
+                        <a href="https://www.instagram.com/swara_cab_?igsh=bmpmdXFseG0zaGQ3" className="hover:text-white">
                             <FontAwesomeIcon icon={faInstagram} className="w-9 h-9" />
                         </a>
-                        <a href="#" className="hover:text-white">
+                        {/* <a href="#" className="hover:text-white">
                             <FontAwesomeIcon icon={faLinkedin} className="w-9 h-9" />
                         </a>
                         <a href="#" className="hover:text-white">
                             <FontAwesomeIcon icon={faTwitter} className="w-9 h-9" />
-                        </a>
+                        </a> */}
                     </div>
 
                 </div>
