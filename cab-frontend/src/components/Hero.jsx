@@ -8,7 +8,7 @@ const Hero = () => {
   const [fromCity, setFromCity] = useState('');
   const [toCity, setToCity] = useState('');
   const [distance, setDistance] = useState(0);
-  
+  const [fareDetails, setFareDetails] = useState({});
 
   const tabs = [
     { id: 'oneway', label: 'Oneway' },
@@ -17,36 +17,70 @@ const Hero = () => {
   ];
 
   const cities = [
-  "Indore","Ujjain","Dewas","Khandwa","Khargone",
-  "Bhopal","Khatu Shyam","Sawariya Seth","Nashik","Bhimashankar"
-];
+    "Indore","Ujjain","Dewas","Khandwa","Khargone",
+    "Bhopal","Khatu Shyam","Sawariya Seth","Nashik","Bhimashankar",
+    "Maheshwar","Pachmarhi"
+  ];
 
-const distanceMap = {
-  Indore: { Ujjain: 55, Dewas: 40, Khandwa: 130, Khargone: 140, Bhopal: 190, "Khatu Shyam": 600, "Sawariya Seth": 300, Nashik: 450, Bhimashankar: 650 },
-  Ujjain: { Indore: 55, Dewas: 35, Bhopal: 180 },
-  Dewas: { Indore: 40, Ujjain: 35, Bhopal: 160 },
-  Khandwa: { Indore: 130, Khargone: 90 },
-  Khargone: { Indore: 140, Khandwa: 90 },
-  Bhopal: { Indore: 190, Ujjain: 180, Dewas: 160 },
-  "Khatu Shyam": { Indore: 600, Bhopal: 650 },
-  "Sawariya Seth": { Indore: 300 },
-  Nashik: { Indore: 450, Bhimashankar: 110 },
-  Bhimashankar: { Nashik: 110, Indore: 650 }
-};
+  const distanceMap = {
+    Indore: {
+      Ujjain: 55, Dewas: 40, Khandwa: 130, Khargone: 140,
+      Bhopal: 190, "Khatu Shyam": 600, "Sawariya Seth": 300,
+      Nashik: 450, Bhimashankar: 650, Maheshwar: 95, Pachmarhi: 400
+    },
+    Ujjain: { Indore: 55, Dewas: 35, Bhopal: 180, Maheshwar: 150, Pachmarhi: 420 },
+    Dewas: { Indore: 40, Ujjain: 35, Bhopal: 160, Maheshwar: 120, Pachmarhi: 380 },
+    Khandwa: { Indore: 130, Khargone: 90, Maheshwar: 70 },
+    Khargone: { Indore: 140, Khandwa: 90, Maheshwar: 65 },
+    Bhopal: { Indore: 190, Ujjain: 180, Dewas: 160, Pachmarhi: 210, Maheshwar: 300 },
+    "Khatu Shyam": { Indore: 600, Bhopal: 650 },
+    "Sawariya Seth": { Indore: 300, Ujjain: 250 },
+    Nashik: { Indore: 450, Bhimashankar: 110 },
+    Bhimashankar: { Nashik: 110, Indore: 650 },
+    Maheshwar: { Indore: 95, Khargone: 65, Khandwa: 70, Ujjain: 150 },
+    Pachmarhi: { Bhopal: 210, Indore: 400, Ujjain: 420 }
+  };
 
-const calculateDistance = (from, to) => {
-  if (!from || !to) return;
+  const calculateDistance = (from, to) => {
+    if (!from || !to) return;
 
-  if (distanceMap[from]?.[to]) {
-    setDistance(distanceMap[from][to]);
-  } else if (distanceMap[to]?.[from]) {
-    setDistance(distanceMap[to][from]);
-  } else {
-    setDistance(0);
-  }
-};
+    if (distanceMap[from]?.[to]) {
+      setDistance(distanceMap[from][to]);
+    } else if (distanceMap[to]?.[from]) {
+      setDistance(distanceMap[to][from]);
+    } else {
+      setDistance(0);
+    }
+  };
 
-  // Helper to render standard Date & Time inputs
+  // ✅ NEW: WhatsApp Handler
+  const handleSearch = () => {
+
+    if (!fromCity || !toCity || !distance) {
+      alert("Please select route properly");
+      return;
+    }
+
+    const phone = "919302538296"; // change if needed
+
+    const message = `
+🚖 Cab Booking Request
+
+📍 From: ${fromCity}
+📍 To: ${toCity}
+📏 Distance: ${distance} KM
+
+🚗 Car: ${fareDetails.car || "-"}
+❄ Type: ${fareDetails.type || "-"}
+💰 Fare: ₹${fareDetails.totalFare || "-"}
+
+Please confirm availability.
+`;
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  };
+
   const DateAndTimeInputs = () => (
     <div className="flex gap-4 mb-4">
       <div className="flex-1">
@@ -58,148 +92,156 @@ const calculateDistance = (from, to) => {
     </div>
   );
 
-  
+  const renderFormContent = () => {
+    switch (activeTab) {
 
- const renderFormContent = () => {
-  switch (activeTab) {
+      case 'oneway':
+        return (
+          <div className="animate-fadeIn">
 
-    case 'oneway':
-      return (
-        <div className="animate-fadeIn">
-
-          {/* FROM CITY */}
-          <div className="mb-4">
-            <label className="block text-sm font-bold text-gray-800 mb-1">From City</label>
-            <select
-              value={fromCity}
-              onChange={(e) => {
-                const value = e.target.value;
-                setFromCity(value);
-                calculateDistance(value, toCity);
-              }}
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500"
-            >
-              <option value="">Select city</option>
-              {cities.map((city, i) => (
-                <option key={i} value={city}>{city}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* TO CITY */}
-          <div className="mb-4">
-            <label className="block text-sm font-bold text-gray-800 mb-1">Destination City</label>
-            <select
-              value={toCity}
-              onChange={(e) => {
-                const value = e.target.value;
-                setToCity(value);
-                calculateDistance(fromCity, value);
-              }}
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500"
-            >
-              <option value="">Select city</option>
-              {cities.map((city, i) => (
-                <option key={i} value={city}>{city}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* DISTANCE DISPLAY */}
-          {distance > 0 && (
-            <div className="mb-4 text-green-600 font-semibold">
-              Distance: {distance} KM
+            {/* FROM CITY */}
+            <div className="mb-4">
+              <label className="block text-sm font-bold text-gray-800 mb-1">From City</label>
+              <select
+                value={fromCity}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setFromCity(value);
+                  calculateDistance(value, toCity);
+                }}
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500"
+              >
+                <option value="">Select city</option>
+                {cities.map((city, i) => (
+                  <option key={i} value={city}>{city}</option>
+                ))}
+              </select>
             </div>
-          )}
 
-          {/* CAR SELECTOR */}
-          <CarSelector distance={distance} />
+            {/* TO CITY */}
+            <div className="mb-4">
+              <label className="block text-sm font-bold text-gray-800 mb-1">Destination City</label>
+              <select
+                value={toCity}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setToCity(value);
+                  calculateDistance(fromCity, value);
+                }}
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500"
+              >
+                <option value="">Select city</option>
+                {cities.map((city, i) => (
+                  <option key={i} value={city}>{city}</option>
+                ))}
+              </select>
+            </div>
 
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200">
-            Search
-          </button>
-        </div>
-      );
+            {/* DISTANCE */}
+            {distance > 0 && (
+              <div className="mb-4 text-green-600 font-semibold">
+                Distance: {distance} KM
+              </div>
+            )}
 
+            {/* ✅ FIXED: PASS CALLBACK */}
+            <CarSelector
+              distance={distance}
+              onFareChange={setFareDetails}
+            />
 
-    case 'hourly':
-      return (
-        <div className="animate-fadeIn">
-
-          <div className="mb-4">
-            <label className="block text-sm font-bold text-gray-800 mb-1">Pickup Location</label>
-            <select className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500">
-              <option>Select city</option>
-              {cities.map((city, i) => (
-                <option key={i}>{city}</option>
-              ))}
-            </select>
+            {/* ✅ FIXED: BUTTON CLICK */}
+            <button
+              onClick={handleSearch}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200"
+            >
+              Enquiry
+            </button>
           </div>
+        );
 
-          <CarSelector />
+      case 'hourly':
+        return (
+          <div className="animate-fadeIn">
 
-          <div className="mb-4">
-            <label className="block text-sm font-bold text-gray-800 mb-1">Per Hrs / Per Kms</label>
-            <select className="w-full border border-gray-300 rounded px-3 py-2 bg-white focus:outline-none focus:border-orange-500">
-              <option>4Hrs/40Kms</option>
-              <option>8Hrs/80Kms</option>
-              <option>12Hrs/120Kms</option>
-            </select>
+            <div className="mb-4">
+              <label className="block text-sm font-bold text-gray-800 mb-1">Pickup Location</label>
+              <select className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-orange-500">
+                <option>Select city</option>
+                {cities.map((city, i) => (
+                  <option key={i}>{city}</option>
+                ))}
+              </select>
+            </div>
+
+            <CarSelector onFareChange={setFareDetails} />
+
+            <div className="mb-4">
+              <label className="block text-sm font-bold text-gray-800 mb-1">Per Hrs / Per Kms</label>
+              <select className="w-full border border-gray-300 rounded px-3 py-2 bg-white focus:outline-none focus:border-orange-500">
+                <option>4Hrs/40Kms</option>
+                <option>8Hrs/80Kms</option>
+                <option>12Hrs/120Kms</option>
+              </select>
+            </div>
+
+            <button
+              onClick={handleSearch}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200"
+            >
+              Enquiry
+            </button>
           </div>
+        );
 
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200">
-            Search
-          </button>
-        </div>
-      );
+      case 'airport':
+        return (
+          <div className="animate-fadeIn">
 
+            <div className="flex gap-4 mb-4">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="airportDir" defaultChecked />
+                <span className="text-sm font-bold text-gray-800">Going To Airport</span>
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="airportDir" />
+                <span className="text-sm font-bold text-gray-800">Coming From Airport</span>
+              </label>
+            </div>
 
-    case 'airport':
-      return (
-        <div className="animate-fadeIn">
+            <CarSelector onFareChange={setFareDetails} />
 
-          <div className="flex gap-4 mb-4">
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input type="radio" name="airportDir" defaultChecked />
-              <span className="text-sm font-bold text-gray-800">Going To Airport</span>
-            </label>
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input type="radio" name="airportDir" />
-              <span className="text-sm font-bold text-gray-800">Coming From Airport</span>
-            </label>
+            <div className="mb-4">
+              <label className="block text-sm font-bold text-gray-800 mb-1">In City</label>
+              <select className="w-full border border-gray-300 rounded px-3 py-2">
+                {cities.map((city, i) => (
+                  <option key={i}>{city}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-bold text-gray-800 mb-1">Pickup Location</label>
+              <select className="w-full border border-gray-300 rounded px-3 py-2">
+                {cities.map((city, i) => (
+                  <option key={i}>{city}</option>
+                ))}
+              </select>
+            </div>
+
+            <button
+              onClick={handleSearch}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200"
+            >
+              Enquiry
+            </button>
           </div>
+        );
 
-          <CarSelector />
-
-          <div className="mb-4">
-            <label className="block text-sm font-bold text-gray-800 mb-1">In City</label>
-            <select className="w-full border border-gray-300 rounded px-3 py-2">
-              {cities.map((city, i) => (
-                <option key={i}>{city}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-bold text-gray-800 mb-1">Pickup Location</label>
-            <select className="w-full border border-gray-300 rounded px-3 py-2">
-              {cities.map((city, i) => (
-                <option key={i}>{city}</option>
-              ))}
-            </select>
-          </div>
-
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-8 rounded shadow-md transition duration-200">
-            Search
-          </button>
-        </div>
-      );
-
-
-    default:
-      return null;
-  }
-};
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="relative  w-full bg-orange-100 flex items-center">
