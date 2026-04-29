@@ -1,11 +1,13 @@
 import "../styles/About.css";
 import heroImg from "../assets/hero.png"; // aapke assets me already hai
 import { COMPANY_DETAILS } from "../ComponyDetails";
+import Hero from "../components/Hero";
 
 export default function About() {
   return (
     <main className="aboutPage">
       {/* HERO */}
+      
       <section className="aboutHero">
         <div
           className="aboutHeroBg"
@@ -36,7 +38,7 @@ export default function About() {
           </div>
         </div>
       </section>
-
+      <Hero/>
       {/* CONTENT */}
       <section className="aboutSection">
         <div className="aboutContainer">
