@@ -2,9 +2,10 @@ import React, { useRef } from 'react';
 import indore from '../assets/images/Indore.jpg';
 import bhopal from '../assets/images/bhopal.jpg';
 import ujjain from '../assets/images/ujjain-mahakaleshwar.jpg';
-import jamnagar from '../assets/images/jamnagar-1.jpg';
-// import mumbai from '../assets/images/mumbai.jpg';
-import pune from '../assets/images/pune.jpg';
+import pachmani from '../assets/images/Pachmarhi_valley_Madhya_Pradesh_INDIA.jpg';
+import maheshwar from '../assets/images/maheshwar.png';
+import omkareshwar from '../assets/images/Omkareshwar8.avif';
+import mandav from '../assets/images/mandav.webp';
 
 const RentalsSlider = () => {
   const sliderRef = useRef(null);
@@ -23,14 +24,29 @@ const RentalsSlider = () => {
       img: ujjain,
     },
     {
+      id: 7,
+      name: 'Omkareshwar',
+      img: omkareshwar,
+    },
+    {
+      id: 8,
+      name: 'Maheshwar',
+      img: maheshwar,
+    },
+    {
+      id: 6,
+      name: 'Mandav',
+      img: mandav,
+    },
+    {
       id: 3,
       name: 'Bhopal',
       img: bhopal,
     },
     {
-      id: 4,
-      name: 'Mumbai',
-      img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVtYmFpfGVufDB8fDB8fHww&w=1000&q=80',
+      id: 5,
+      name: 'Pachmarhi',
+      img: pachmani,    
     },
   ];
 
