@@ -46,13 +46,15 @@ export const CarSelector = ({ distance, onFareChange }) => {
         toll,
         totalFare,
       });
+      console.log("car details:",selectedCar.name);
+      
     }
   }, [selectedCar, isAc, distance, toll]);
 
   return (
     <div className="mb-4">
       <label className="block text-sm font-bold text-gray-800 mb-2">
-        Select Car
+        Select Car 
       </label>
 
       <div className="grid grid-cols-2 gap-2 mb-3">
@@ -92,11 +94,12 @@ export const CarSelector = ({ distance, onFareChange }) => {
 
       {/* Rate */}
       <input
-        type="number"
-        value={rate}
+        type="text"
+        value={`₹${rate} / km`}
         disabled
         className="w-full border border-gray-300 rounded px-3 py-2 mb-2"
       />
+      
 
       {/* Toll */}
       <input

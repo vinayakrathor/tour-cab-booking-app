@@ -73,7 +73,7 @@ export default function Footer() {
                         <a href="https://www.facebook.com/rocky.puware" className="hover:text-white">
                             <FontAwesomeIcon icon={faFacebook} />
                         </a>
-                        <a href="https://www.instagram.com/swara_cab_?igsh=bmpmdXFseG0zaGQ3" className="hover:text-white">
+                        <a href="https://www.instagram.com/st_royal_trips/" className="hover:text-white">
                             <FontAwesomeIcon icon={faInstagram} className="w-9 h-9" />
                         </a>
                         {/* <a href="#" className="hover:text-white">

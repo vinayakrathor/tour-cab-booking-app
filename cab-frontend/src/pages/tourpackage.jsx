@@ -8,6 +8,9 @@ import Kanha_Safari_Main from "../assets/images/Kanha_Safari_Main.jpg";
 import Pachmarhi_valley_Madhya_Pradesh_INDIA from "../assets/images/Pachmarhi_valley_Madhya_Pradesh_INDIA.jpg";
 import sanchistupa from "../assets/images/sanchi-stupa.webp";
 import Masjid from "../assets/images/Masjid.webp";
+import maheshwarImg from "../assets/images/maheshwar.png";
+import omkareshwarImg from "../assets/images/Omkareshwar8.avif";
+import mandavImg from "../assets/images/mandav.webp"; 
 
 export default function TourPackages() {
   const [cat, setCat] = useState("All");
@@ -15,6 +18,166 @@ export default function TourPackages() {
   const [selectedPackage, setSelectedPackage] = useState(null);
 
   const packages = [
+    {
+    id: 7,
+    title: "Omkareshwar Jyotirlinga Darshan",
+    days: "2 Days and 1 Night",
+    price: "₹4,499",
+    cat: "Religious",
+    rating: "4.8",
+    img: omkareshwarImg,
+  
+    description: "Visit sacred Omkareshwar Jyotirlinga with peaceful Narmada river views.",
+  
+    route: ["Indore", "Omkareshwar", "Indore"],
+  
+    highlights: [
+      "Omkareshwar Jyotirlinga",
+      "Mamleshwar Temple",
+      "Narmada Aarti",
+      "Hanging Bridge"
+    ],
+  
+    itinerary: [
+      {
+        day: "Day 1",
+        title: "Indore → Omkareshwar",
+        points: [
+          "Pickup from Indore",
+          "Drive to Omkareshwar",
+          "Hotel Check-in",
+          "Evening Aarti Darshan"
+        ]
+      },
+      {
+        day: "Day 2",
+        title: "Temple Darshan & Return",
+        points: [
+          "Morning Temple Visit",
+          "Local sightseeing",
+          "Return to Indore"
+        ]
+      }
+    ],
+  
+    includes: [
+      "AC Cab",
+      "1 Night Hotel Stay",
+      "Driver Allowance",
+      "Temple Visits"
+    ],
+  
+    excludes: [
+      "Food",
+      "VIP Darshan",
+      "Personal Expenses"
+    ],
+  
+    contact: "9302538296"
+  },
+  {
+    id: 8,
+    title: "Mandav Heritage Trip",
+    days: "2 Days and 1 Night",
+    price: "₹5,999",
+    cat: "Heritage",
+    rating: "4.7",
+    img: mandavImg,
+  
+    description: "Explore the royal heritage of Mandu with historic forts and scenic beauty.",
+  
+    route: ["Indore", "Mandav", "Indore"],
+  
+    highlights: [
+      "Jahaz Mahal",
+      "Rani Roopmati Pavilion",
+      "Baz Bahadur Palace",
+      "Hindola Mahal"
+    ],
+  
+    itinerary: [
+      {
+        day: "Day 1",
+        title: "Indore → Mandav",
+        points: [
+          "Pickup from Indore",
+          "Drive to Mandav",
+          "Hotel Check-in",
+          "Visit Jahaz Mahal"
+        ]
+      },
+      {
+        day: "Day 2",
+        title: "Sightseeing & Return",
+        points: [
+          "Visit Roopmati Pavilion",
+          "Explore Baz Bahadur Palace",
+          "Return to Indore"
+        ]
+      }
+    ],
+  
+    includes: [
+      "AC Cab",
+      "Hotel Stay",
+      "Driver Allowance",
+      "Sightseeing"
+    ],
+  
+    excludes: [
+      "Entry Tickets",
+      "Food",
+      "Personal Expenses"
+    ],
+  
+    contact: "9302538296"
+  },
+  {
+    id: 9,
+    title: "Maheshwar Spiritual Trip",
+    days: "1 Day",
+    price: "₹3,499",
+    cat: "Religious",
+    rating: "4.8",
+    img: maheshwarImg,
+  
+    description: "Experience the spiritual charm of Maheshwar with Narmada ghats and temples.",
+  
+    route: ["Indore", "Maheshwar", "Indore"],
+  
+    highlights: [
+      "Ahilya Fort",
+      "Narmada Ghats",
+      "Maheshwari Saree Market"
+    ],
+  
+    itinerary: [
+      {
+        day: "Day 1",
+        title: "Indore → Maheshwar → Indore",
+        points: [
+          "Pickup from Indore",
+          "Drive to Maheshwar",
+          "Temple visit & sightseeing",
+          "Return by evening"
+        ]
+      }
+    ],
+  
+    includes: [
+      "AC Cab",
+      "Driver Allowance",
+      "Sightseeing"
+    ],
+  
+    excludes: [
+      "Food",
+      "Shopping Expenses",
+      "Personal Expenses"
+    ],
+  
+    contact: "9302538296"
+  },
   {
     id: 1,
     title: "Ujjain Mahakal Darshan",
@@ -245,7 +408,7 @@ export default function TourPackages() {
     includes: ["Cab"],
     excludes: ["Entry Fees"],
     contact: "9302538296"
-  }
+  },
 ];
 
   const cats = ["All", "Religious", "Heritage", "Wildlife", "Hill", "City"];

@@ -9,6 +9,8 @@ const Hero = () => {
   const [toCity, setToCity] = useState('');
   const [distance, setDistance] = useState(0);
   const [fareDetails, setFareDetails] = useState({});
+  const [travelDate, setTravelDate] = useState('');
+  const [travelTime, setTravelTime] = useState('');
 
   const tabs = [
     { id: 'oneway', label: 'Oneway' },
@@ -40,6 +42,23 @@ const Hero = () => {
     Maheshwar: { Indore: 95, Khargone: 65, Khandwa: 70, Ujjain: 150 },
     Pachmarhi: { Bhopal: 210, Indore: 400, Ujjain: 420 }
   };
+
+  const DateAndTimeInputs = () => (
+  <div className="mb-4">
+    <label className="block text-sm font-bold text-gray-800 mb-1">
+      Travel Date & Time
+    </label>
+
+    <div className="flex gap-4">
+      <input
+        type="date"
+        value={travelDate}
+        onChange={(e) => setTravelDate(e.target.value)}
+        className="w-full border border-gray-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:border-orange-500"
+      />
+    </div>
+  </div>
+);
 
   const calculateDistance = (from, to) => {
     if (!from || !to) return;
@@ -81,17 +100,7 @@ Please confirm availability.
     window.open(url, "_blank");
   };
 
-  const DateAndTimeInputs = () => (
-    <div className="flex gap-4 mb-4">
-      <div className="flex-1">
-        <input type="date" className="w-full border border-gray-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:border-orange-500" />
-      </div>
-      <div className="flex-1">
-        <input type="time" defaultValue="13:30" className="w-full border border-gray-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:border-orange-500" />
-      </div>
-    </div>
-  );
-
+  
   const renderFormContent = () => {
     switch (activeTab) {
 
@@ -137,6 +146,8 @@ Please confirm availability.
               </select>
             </div>
 
+               {/* DATE & TIME */}
+                <DateAndTimeInputs /> 
             {/* DISTANCE */}
             {distance > 0 && (
               <div className="mb-4 text-green-600 font-semibold">
