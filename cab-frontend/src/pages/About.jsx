@@ -38,7 +38,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <Hero/>
+      {/* <Hero/> */}
       {/* CONTENT */}
       <section className="aboutSection">
         <div className="aboutContainer">
