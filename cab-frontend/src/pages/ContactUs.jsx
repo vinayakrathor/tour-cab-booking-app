@@ -1,8 +1,11 @@
+import ContactForm from "../components/ContactForm";
 import { COMPANY_DETAILS } from "../ComponyDetails";
 
 // src/components/ContactUs.jsx
 export default function ContactUs() {
   return (
+  <>
+      <ContactForm/>
     <section className="bg-white/90 py-6 px-4 lg:py-10 lg:px-20 rounded-lg shadow-md max-w-3xl mx-auto">
       <h2 className="text-2xl font-bold text-gray-800 mb-4">Contact us</h2>
       <p className="text-gray-600 mb-6">
@@ -38,5 +41,6 @@ export default function ContactUs() {
         </div>
       </div>
     </section>
+    </>
   );
 }

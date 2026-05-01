@@ -35,6 +35,7 @@ export const CarSelector = ({ distance, onFareChange }) => {
 
   // ✅ Send data back to Hero
   useEffect(() => {
+    console.log("car details:",selectedCar.name);
     if (onFareChange) {
       onFareChange({
         carName: selectedCar.name,
@@ -46,7 +47,6 @@ export const CarSelector = ({ distance, onFareChange }) => {
         toll,
         totalFare,
       });
-      console.log("car details:",selectedCar.name);
       
     }
   }, [selectedCar, isAc, distance, toll]);
