@@ -505,6 +505,17 @@ export default function TourPackages() {
   },
 ];
 
+   // ✅ NEW: WhatsApp Handler
+  const handleWhatsapp = () => {
+    
+    const phone = "919302538296"; // change if needed
+
+    const message = `📍${selectedPackage.title} Package looks interesting! Please share details and availability. Thanks!`;
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  };
+
   const cats = ["All", "Religious", "Heritage", "Wildlife", "Hill", "City"];
 
   const filtered = useMemo(() => {
@@ -613,10 +624,10 @@ export default function TourPackages() {
 
       {/* CTA */}
       <div className="tpActions">
-        <a href="/#contact" className="tpBtnPrimary">
+        <a href="/#contact" className="tpBtnPrimary" onClick={handleWhatsapp}>
           Send Enquiry
         </a>
-        <a href={`tel:+91${selectedPackage.contact}`} className="tpBtnOutline">
+        <a href={`tel:+91${selectedPackage.contact}`} className="tpBtnPrimary">
           Call Now
         </a>
       </div>
