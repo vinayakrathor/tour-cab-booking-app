@@ -25,23 +25,84 @@ const Hero = () => {
   ];
 
   const distanceMap = {
-    Indore: {
-      Ujjain: 55, Dewas: 40, Khandwa: 130, Khargone: 140,
-      Bhopal: 190, "Khatu Shyam": 600, "Sawariya Seth": 300,
-      Nashik: 450, Bhimashankar: 650, Maheshwar: 95, Pachmarhi: 400
-    },
-    Ujjain: { Indore: 55, Dewas: 35, Bhopal: 180, Maheshwar: 150, Pachmarhi: 420 },
-    Dewas: { Indore: 40, Ujjain: 35, Bhopal: 160, Maheshwar: 120, Pachmarhi: 380 },
-    Khandwa: { Indore: 130, Khargone: 90, Maheshwar: 70 },
-    Khargone: { Indore: 140, Khandwa: 90, Maheshwar: 65 },
-    Bhopal: { Indore: 190, Ujjain: 180, Dewas: 160, Pachmarhi: 210, Maheshwar: 300 },
-    "Khatu Shyam": { Indore: 600, Bhopal: 650 },
-    "Sawariya Seth": { Indore: 300, Ujjain: 250 },
-    Nashik: { Indore: 450, Bhimashankar: 110 },
-    Bhimashankar: { Nashik: 110, Indore: 650 },
-    Maheshwar: { Indore: 95, Khargone: 65, Khandwa: 70, Ujjain: 150 },
-    Pachmarhi: { Bhopal: 210, Indore: 400, Ujjain: 420 }
-  };
+  Indore: {
+    Ujjain: 55, Dewas: 40, Khandwa: 130, Khargone: 140,
+    Bhopal: 190, "Khatu Shyam": 600, "Sawariya Seth": 300,
+    Nashik: 450, Bhimashankar: 650, Maheshwar: 95, Pachmarhi: 400, Omkareshwar: 80
+  },
+
+  Ujjain: {
+    Indore: 55, Dewas: 35, Khandwa: 160, Khargone: 170,
+    Bhopal: 180, "Khatu Shyam": 620, "Sawariya Seth": 250,
+    Nashik: 480, Bhimashankar: 670, Maheshwar: 150, Pachmarhi: 420, Omkareshwar: 150
+  },
+
+  Dewas: {
+    Indore: 40, Ujjain: 35, Khandwa: 150, Khargone: 160,
+    Bhopal: 160, "Khatu Shyam": 610, "Sawariya Seth": 270,
+    Nashik: 470, Bhimashankar: 660, Maheshwar: 120, Pachmarhi: 380, Omkareshwar: 120
+  },
+
+  Khandwa: {
+    Indore: 130, Ujjain: 160, Dewas: 150, Khargone: 90,
+    Bhopal: 260, "Khatu Shyam": 700, "Sawariya Seth": 350,
+    Nashik: 300, Bhimashankar: 500, Maheshwar: 70, Pachmarhi: 300, Omkareshwar: 70
+  },
+
+  Khargone: {
+    Indore: 140, Ujjain: 170, Dewas: 160, Khandwa: 90,
+    Bhopal: 270, "Khatu Shyam": 710, "Sawariya Seth": 360,
+    Nashik: 320, Bhimashankar: 520, Maheshwar: 65, Pachmarhi: 320, Omkareshwar: 60
+  },
+
+  Bhopal: {
+    Indore: 190, Ujjain: 180, Dewas: 160, Khandwa: 260, Khargone: 270,
+    "Khatu Shyam": 650, "Sawariya Seth": 400,
+    Nashik: 600, Bhimashankar: 750, Maheshwar: 300, Pachmarhi: 210, Omkareshwar: 250
+  },
+
+  "Khatu Shyam": {
+    Indore: 600, Ujjain: 620, Dewas: 610, Khandwa: 700, Khargone: 710,
+    Bhopal: 650, "Sawariya Seth": 350,
+    Nashik: 900, Bhimashankar: 1000, Maheshwar: 650, Pachmarhi: 700, Omkareshwar: 650
+  },
+
+  "Sawariya Seth": {
+    Indore: 300, Ujjain: 250, Dewas: 270, Khandwa: 350, Khargone: 360,
+    Bhopal: 400, "Khatu Shyam": 350,
+    Nashik: 700, Bhimashankar: 800, Maheshwar: 250, Pachmarhi: 450, Omkareshwar: 260
+  },
+
+  Omkareshwar: {
+    Indore: 80, Ujjain: 150, Dewas: 120, Khandwa: 70, Khargone: 60,
+    Bhopal: 250, "Khatu Shyam": 650, "Sawariya Seth": 260,
+    Nashik: 400, Bhimashankar: 600, Maheshwar: 70, Pachmarhi: 350
+  },
+
+  Nashik: {
+    Indore: 450, Ujjain: 480, Dewas: 470, Khandwa: 300, Khargone: 320,
+    Bhopal: 600, "Khatu Shyam": 900, "Sawariya Seth": 700,
+    Bhimashankar: 110, Maheshwar: 400, Pachmarhi: 650, Omkareshwar: 400
+  },
+
+  Bhimashankar: {
+    Indore: 650, Ujjain: 670, Dewas: 660, Khandwa: 500, Khargone: 520,
+    Bhopal: 750, "Khatu Shyam": 1000, "Sawariya Seth": 800,
+    Nashik: 110, Maheshwar: 600, Pachmarhi: 800, Omkareshwar: 600
+  },
+
+  Maheshwar: {
+    Indore: 95, Ujjain: 150, Dewas: 120, Khandwa: 70, Khargone: 65,
+    Bhopal: 300, "Khatu Shyam": 650, "Sawariya Seth": 250,
+    Nashik: 400, Bhimashankar: 600, Pachmarhi: 350, Omkareshwar: 70
+  },
+
+  Pachmarhi: {
+    Indore: 400, Ujjain: 420, Dewas: 380, Khandwa: 300, Khargone: 320,
+    Bhopal: 210, "Khatu Shyam": 700, "Sawariya Seth": 450,
+    Nashik: 650, Bhimashankar: 800, Maheshwar: 350, Omkareshwar: 350
+  }
+};
 const formatDate = (date) => {
   if (!date) return "";
   const [year, month, day] = date.split("-");

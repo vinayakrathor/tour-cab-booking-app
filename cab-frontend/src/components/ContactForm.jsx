@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import "../styles/ContactUs.css";
+import { saveContact } from "../API/ContactApi";
  
 export default function ContactForm({
   title = "Contact Us",
@@ -69,6 +70,7 @@ export default function ContactForm({
             <iframe
               title="Google Map"
               src={mapEmbedUrl}
+              
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
@@ -76,7 +78,7 @@ export default function ContactForm({
           </div>
  
           {/* RIGHT: FORM */}
-          <form className="cu-form" onSubmit={handleSubmit}>
+          <form className="cu-form" >
             <input
               className="cu-input"
               name="name"
@@ -123,7 +125,7 @@ export default function ContactForm({
               placeholder="Your Message"
             />
  
-            <button className="cu-btn" type="submit" disabled={!isValid}>
+            <button className="cu-btn" type="submit" disabled={!isValid} onClick={handleSubmit}>
               Submit
             </button>
           </form>
