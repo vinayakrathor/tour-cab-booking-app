@@ -4,6 +4,19 @@ import { COMPANY_DETAILS } from "../ComponyDetails";
 import Hero from "../components/Hero";
 
 export default function About() {
+
+   // ✅ NEW: WhatsApp Handler
+  const handleWhatsapp = () => {
+    
+    const phone = "919302538296"; // change if needed
+
+    const message = `Hey Swaratrips Indore,
+Looking to book a cab. Please share your best price and availability.
+Thanks!`;
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  };
   return (
     <main className="aboutPage">
       {/* HERO */}
@@ -29,11 +42,17 @@ export default function About() {
             </a>
             <a
               className="aboutBtnOutline"
-              href={`https://wa.me/${COMPANY_DETAILS.phone.replace(/\s/g, '')}`}
-              target="_blank"
               rel="noreferrer"
+              onClick={handleWhatsapp}
             >
               WhatsApp
+            </a>
+            <a
+              className="aboutBtnOutline"
+              rel="noreferrer"
+              href="https://share.google/TwUGPKQvaOCdvCv14"
+            >
+              Visit
             </a>
           </div>
         </div>
@@ -123,7 +142,7 @@ export default function About() {
 
           <div className="aboutBottomBtns">
             <a className="aboutBtnPrimary" href={`tel:${COMPANY_DETAILS.phone.replace(/\s/g, '')}`}>Call</a>
-            <a className="aboutBtnOutlineDark" href={`https://wa.me/${COMPANY_DETAILS.phone.replace(/\s/g, '')}`} target="_blank" rel="noreferrer">
+            <a className="aboutBtnOutlineDark" onClick={handleWhatsapp}>
               WhatsApp
             </a>
           </div>
