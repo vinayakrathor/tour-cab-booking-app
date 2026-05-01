@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import "../styles/tourpackage.css";
 import { Phone, PhoneCall } from "lucide-react";
-import firstsection from "../assets/images/1stsection.jpg";
+import firstsection from "../assets/images/1stsection.jpeg";
 import ujjainmahakaleshwar from "../assets/images/ujjain-mahakaleshwar.jpg";
 import trimbakeshwar from "../assets/images/Trimbakeshwar.jpg";
 import Kanha_Safari_Main from "../assets/images/Kanha_Safari_Main.jpg";
@@ -227,6 +227,100 @@ export default function TourPackages() {
     contact: "9302538296"
   },
 
+  {
+  id: 10,
+  title: "Ujjain → Omkareshwar → Indore Tour",
+  days: "3 Days and 2 Nights",
+  price: "₹3,499",
+  cat: "Religious",
+  rating: "4.9",
+  img: omkareshwarImg, // you can change image if needed
+
+  description: "Complete spiritual tour covering Ujjain Mahakal, Omkareshwar Jyotirling and Indore temples with comfortable cab service.",
+
+  route: ["Ujjain", "Omkareshwar", "Indore"],
+
+  highlights: [
+    "Mahakaleshwar Jyotirling",
+    "Kal Bhairav Mandir",
+    "Harsiddhi Mata Mandir",
+    "Omkareshwar Jyotirling",
+    "Mamleshwar Mandir",
+    "Khajrana Ganesh Temple",
+    "Rajwada Palace",
+    "Sarafa Bazaar"
+  ],
+
+  itinerary: [
+    {
+      day: "Day 1",
+      title: "Ujjain Temple Darshan",
+      points: [
+        "Mahakaleshwar Jyotirling Darshan",
+        "Kal Bhairav Mandir",
+        "Harsiddhi Mata Mandir",
+        "Mangalnath Mandir",
+        "Chintaman Ganesh Mandir",
+        "Ram Ghat Visit",
+        "Attend Aarti (Bhasma / Evening)",
+        "Night Stay in Ujjain"
+      ]
+    },
+    {
+      day: "Day 2",
+      title: "Omkareshwar Darshan",
+      points: [
+        "Travel to Omkareshwar",
+        "Omkareshwar Jyotirling Darshan",
+        "Mamleshwar Temple Visit",
+        "Narmada Ghat Visit",
+        "Optional Parikrama Path",
+        "Night Stay in Indore / Omkareshwar"
+      ]
+    },
+    {
+      day: "Day 3",
+      title: "Indore Sightseeing",
+      points: [
+        "Khajrana Ganesh Mandir",
+        "Annapurna Mandir",
+        "Bijasan Mata Mandir",
+        "Rajwada Palace",
+        "Lal Bagh Palace",
+        "Sarafa / 56 Dukan Visit",
+        "Tour Ends in Indore"
+      ]
+    }
+  ],
+
+  includes: [
+    "Ujjain Pickup",
+    "All Sightseeing",
+    "Driver + Fuel",
+    "Comfortable Cab",
+    "Temple Visits"
+  ],
+
+  excludes: [
+    "Food",
+    "Hotel (if not included)",
+    "VIP Darshan",
+    "Personal Expenses"
+  ],
+
+  vehicleOptions: [
+    "Swift Dzire",
+    "Ertiga (Family Comfort)"
+  ],
+
+  aartiTimings: [
+    "Bhasma Aarti – 4:00 AM",
+    "Morning Aarti – 7:00 AM",
+    "Evening Aarti – 7:00 PM"
+  ],
+
+  contact: "9302538296"
+},
   {
     id: 2,
     title: "Indore-Maharashtra Jyotirlinga Tour",

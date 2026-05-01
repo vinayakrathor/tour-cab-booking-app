@@ -42,7 +42,11 @@ const Hero = () => {
     Maheshwar: { Indore: 95, Khargone: 65, Khandwa: 70, Ujjain: 150 },
     Pachmarhi: { Bhopal: 210, Indore: 400, Ujjain: 420 }
   };
-
+const formatDate = (date) => {
+  if (!date) return "";
+  const [year, month, day] = date.split("-");
+  return `${day}-${month}-${year}`;
+};
   const DateAndTimeInputs = () => (
   <div className="mb-4">
     <label className="block text-sm font-bold text-gray-800 mb-1">
@@ -79,7 +83,8 @@ const Hero = () => {
       alert("Please select route properly");
       return;
     }
-
+    console.log("whatsapp details:",travelDate,fareDetails.carName,fareDetails);
+    
     const phone = "919302538296"; // change if needed
 
     const message = `
@@ -88,8 +93,9 @@ const Hero = () => {
 📍 From: ${fromCity}
 📍 To: ${toCity}
 📏 Distance: ${distance} KM
+📅 Date: ${formatDate(travelDate) || "-"}
 
-🚗 Car: ${fareDetails.car || "-"}
+🚗 Car: ${fareDetails.carName}
 ❄ Type: ${fareDetails.type || "-"}
 💰 Fare: ₹${fareDetails.totalFare || "-"}
 
