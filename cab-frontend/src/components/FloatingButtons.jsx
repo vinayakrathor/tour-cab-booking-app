@@ -1,34 +1,39 @@
 import React from "react";
-import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram, FaPhone } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa6";
 import "../styles/FloatingButtons.css";
 
 const FloatingButtons = () => {
-    const phoneNumber = "919302538296"; // your number
+    const phoneNumber = "919302538296";
     const whatsappLink = `https://wa.me/${phoneNumber}?text=I want to book a taxi`;
 
     return (
-        <>
-            {/* WhatsApp - FIXED */}
-            <a
-                href={whatsappLink}
-                className="whatsapp-btn"
-                target="_blank"
-                rel="noreferrer"
-            >
-                <FaWhatsapp />
-                <span>Book Taxi</span>
+        <div className="floating-container">
+
+            {/* CALL */}
+            <a href="tel:+919302538296" className="float-item call">
+                <FaPhone />
+                <span>Call</span>
             </a>
 
-            {/* Instagram - NOT FIXED (absolute inside page) */}
+            {/* WHATSAPP */}
+            <a href={whatsappLink} className="float-item whatsapp" target="_blank" rel="noreferrer">
+                <FaWhatsapp />
+                <span>WhatsApp</span>
+            </a>
+
+            {/* INSTAGRAM WITH ARROW */}
             <a
                 href="https://www.instagram.com/st_royal_trips/"
-                className="instagram-btn"
+                className="float-item instagram"
                 target="_blank"
                 rel="noreferrer"
             >
                 <FaInstagram />
+                <span>Instagram</span>
             </a>
-        </>
+
+        </div>
     );
 };
 
