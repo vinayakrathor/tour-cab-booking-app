@@ -2,11 +2,13 @@ import FleetSlider from "../components/Fleet";
 import Hero from "../components/Hero";
 import RentalsSlider from "../components/RentalsSlider";
 import ValueProposition from "../components/ValueProposition";
+import FloatingButtons from "../components/FloatingButtons";
 
 const Home = () => {
     return(
         <>
         <Hero/>
+         <FloatingButtons />  
         <FleetSlider/>
         <ValueProposition/>
         <RentalsSlider/>

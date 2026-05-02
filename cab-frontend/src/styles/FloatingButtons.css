@@ -1,0 +1,37 @@
+/* WhatsApp Button (Fixed Bottom Right) */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.05);
+}
+
+/* Instagram Button (Middle Right - NOT FIXED) */
+.instagram-btn {
+    position: fixed;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #e1306c;
+    color: white;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-decoration: none;
+}

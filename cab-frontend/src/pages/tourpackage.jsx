@@ -11,6 +11,7 @@ import Masjid from "../assets/images/Masjid.webp";
 import maheshwarImg from "../assets/images/maheshwar.png";
 import omkareshwarImg from "../assets/images/Omkareshwar8.avif";
 import mandavImg from "../assets/images/mandav.webp"; 
+import InfoPopup from "../components/InfoPopup";
 
 export default function TourPackages() {
   const [cat, setCat] = useState("All");
@@ -524,7 +525,13 @@ export default function TourPackages() {
   }, [cat]);
 
   return (
+
               <>
+      
+        {/* ✅ Popup always top layer */}
+        <div style={{ position: "relative", zIndex: 9999 }}>
+          <InfoPopup />
+        </div>
                 {showModal && selectedPackage && (
   <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
 
