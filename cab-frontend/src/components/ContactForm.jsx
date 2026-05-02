@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from "react";
 import "../styles/ContactUs.css";
 import { saveContact } from "../API/ContactApi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
  
 export default function ContactForm({
   title = "Contact Us",
@@ -32,26 +34,27 @@ export default function ContactForm({
   async function handleSubmit(e) {
     e.preventDefault();
     if (!isValid) return;
- 
-    console.log("ContactUs Form:", form);
-     const res=await saveContact(form);
-    if(res){
-      alert("Submitted successfully!");
+
+    const res = await saveContact(form);
+
+    if (res) {
+      toast.success("Your data is saved ✅");
+
       setForm({
-      name: "",
-      phone: "",
-      email: "",
-      option: "",
-      message: "",
-    });
+        name: "",
+        phone: "",
+        email: "",
+        option: "",
+        message: "",
+      });
     } else {
-      alert("Submission failed. Please try again.");
+      toast.error("Submission failed ❌");
     }
-    
-  };
+  }
  
   return (
     <section className="cu-section">
+      <ToastContainer position="top-center" autoClose={3000} />
       <div className="cu-container">
         <h2 className="cu-title">{title}</h2>
  
@@ -93,6 +96,7 @@ export default function ContactForm({
               value={form.phone}
               onChange={handleChange}
               placeholder="Contact Number"
+              maxLength={10}
             />
  
             <input
