@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getContacts } from "../API/ContactApi";
 
 const Admin = () => {
   const [data, setData] = useState([]);
@@ -6,11 +7,14 @@ const Admin = () => {
 
   // ✅ Fetch data from backend
   useEffect(() => {
-    fetch("http://localhost:5000/api/enquiries") // change your API
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => console.log(err));
+    const fetchData = async () => {
+      const res = await getContacts();
+      setData(res);
+    };
+
+    fetchData();
   }, []);
+
 
   // ✅ Filter search
   const filteredData = data.filter((item) =>

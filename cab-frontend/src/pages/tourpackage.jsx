@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import "../styles/tourpackage.css";
 import { Phone, PhoneCall } from "lucide-react";
-import firstsection from "../assets/images/1stsection.jpeg";
+import firstsection from "../assets/images/firstsec.png";
 import ujjainmahakaleshwar from "../assets/images/ujjain-mahakaleshwar.jpg";
 import trimbakeshwar from "../assets/images/Trimbakeshwar.jpg";
 import Kanha_Safari_Main from "../assets/images/Kanha_Safari_Main.jpg";
