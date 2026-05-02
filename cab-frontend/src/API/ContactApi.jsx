@@ -6,11 +6,13 @@ const supabase = createClient(URL, KEY);
 // https://duibhlaskyirtpugqdbd.supabase.co/swara_contact
 
 export async function saveContact(data){
+    console.log("contact data in api:",data);
+    
 
   const { data: res, error } = await supabase
   .from('swara_contact')
   .insert([
-    { name: data.name, phone:data.phone, email:data.email,message:data.message,purpose:data.purpose },
+    { name: data.name, phone:data.phone, email:data.email,message:data.message,purpose:data.option },
   ])
   .select();
 
