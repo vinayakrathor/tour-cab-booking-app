@@ -3,7 +3,7 @@ import '../styles/Navbar.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { COMPANY_DETAILS } from '../ComponyDetails';
 import { PhoneCall } from "lucide-react";
-import logo from '../assets/images/heavylogo.png';
+import logo from '../assets/images/heavylogo-photoroom.png';
 
 
 

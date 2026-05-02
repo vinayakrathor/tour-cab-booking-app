@@ -22,3 +22,17 @@ if(error){
 
 return res;   // 👈 ye line add karo
 }
+
+export async function getContacts() {
+  const { data, error } = await supabase
+    .from('swara_contact')
+    .select('*')
+    .order('created_at', { ascending: false }); // latest first
+
+  if (error) {
+    console.error("Error fetching contacts:", error);
+    return [];
+  }
+
+  return data;
+}
