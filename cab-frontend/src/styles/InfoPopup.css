@@ -1,0 +1,142 @@
+.info-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 16px;
+}
+
+.info-modal {
+    position: relative;
+    width: min(560px, 92vw);
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px 18px 16px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.info-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    color: #222;
+    opacity: 0.8;
+}
+
+.info-close:hover {
+    opacity: 1;
+}
+
+.info-title {
+    margin: 4px 28px 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+}
+
+.info-subtitle {
+    margin: 0 0 12px;
+    font-size: 14px;
+    color: #333;
+}
+
+.info-subtitle2 {
+    margin: 6px 0 10px;
+    font-size: 13.5px;
+    color: #333;
+}
+
+.info-section {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.info-section-title {
+    margin: 0 0 8px;
+    font-weight: 700;
+    color: #111;
+    font-size: 14px;
+}
+
+.info-section-title.small {
+    font-size: 13.5px;
+    margin-top: 6px;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-list li {
+    position: relative;
+    padding-left: 18px;
+    margin: 7px 0;
+    color: #222;
+    font-size: 14px;
+}
+
+.info-list li::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #f97316;
+    /* orange theme */
+    font-size: 12px;
+    transform: translateY(2px);
+}
+
+.info-divider {
+    height: 1px;
+    background: #e9e9e9;
+    margin: 14px 0;
+}
+
+.info-note {
+    margin: 10px 0 0;
+    padding: 10px 12px;
+    background: #fff4ea;
+    border: 1px solid #ffd8bf;
+    border-radius: 10px;
+    font-size: 12.5px;
+    color: #5a3a22;
+    text-align: center;
+}
+
+.info-btn {
+    margin-top: 14px;
+    width: 100%;
+    border: none;
+    background: #f97316;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.info-btn:hover {
+    background: #ea650f;
+}
+
+@media (max-width: 420px) {
+    .info-title {
+        font-size: 16px;
+    }
+
+    .info-list li {
+        font-size: 13.5px;
+    }
+}
